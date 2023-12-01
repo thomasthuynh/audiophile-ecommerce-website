@@ -16,8 +16,8 @@ const Nav = (props: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
-    <nav className="bg-black text-white">
-      <div className="mx-auto w-5/6 py-6">
+    <nav className="font-manrope fixed w-full text-white">
+      <div className="mx-auto w-5/6 border-b border-neutral-500 py-6">
         {/* MENU */}
         <div className="flex items-center justify-between">
           <div className="sm:flex sm:items-center">

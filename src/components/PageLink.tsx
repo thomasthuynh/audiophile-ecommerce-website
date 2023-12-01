@@ -19,7 +19,7 @@ const PageLink = ({ page, selectedPage, setSelectedPage }: Props) => {
       <li
         className={`${
           lowerCasePage === selectedPage ? "text-primary-500" : ""
-        } my-8 text-lg font-medium uppercase md:my-0 md:mx-4 lg:mx-6 md:text-sm`}
+        } my-8 text-lg font-bold uppercase tracking-[1px] md:mx-4 md:my-0 md:text-sm lg:mx-6`}
       >
         {page}
       </li>
