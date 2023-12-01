@@ -11,11 +11,15 @@ const PageLink = ({ page, selectedPage, setSelectedPage }: Props) => {
   const lowerCasePage = page.toLowerCase() as SelectedPage;
 
   return (
-    <Link to={`/${page}`} onClick={() => setSelectedPage(lowerCasePage)}>
+    <Link
+      to={`/${page}`}
+      onClick={() => setSelectedPage(lowerCasePage)}
+      className="hover:text-primary-500"
+    >
       <li
         className={`${
           lowerCasePage === selectedPage ? "text-primary-500" : ""
-        } mr-8 text-sm uppercase hover:text-primary-500 font-medium`}
+        } my-8 text-lg font-medium uppercase md:my-0 md:mr-8 md:text-sm`}
       >
         {page}
       </li>
