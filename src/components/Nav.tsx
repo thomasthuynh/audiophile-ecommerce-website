@@ -23,7 +23,7 @@ const Nav = (props: Props) => {
           <div className="sm:flex sm:items-center">
             <button
               onClick={() => setModalToggled(!modalToggled)}
-              className="sm:mr-12 lg:hidden"
+              className="sm:mr-12 md:hidden"
             >
               <img src={Hamburger} alt="Hamburger menu" className="h-[15px]" />
             </button>
@@ -33,7 +33,7 @@ const Nav = (props: Props) => {
           <div className="sm:hidden">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className="hidden lg:flex">
+          <div className="hidden md:flex">
             <ul className="flex">
               <PageLink
                 page="Home"
