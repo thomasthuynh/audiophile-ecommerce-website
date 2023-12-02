@@ -17,6 +17,7 @@ export default {
         heroImgSm: "url('./src/assets/home/mobile/image-header.jpg')",
         heroImgMd: "url('./src/assets/home/tablet/image-header.jpg')",
         heroImgLg: "url('./src/assets/home/desktop/image-hero.jpg')",
+        circles: "url('./src/assets/home/desktop/pattern-circles.svg')",
       },
     },
   },
