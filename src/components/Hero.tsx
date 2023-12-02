@@ -4,7 +4,7 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <header className="bg-heroImgSm sm:bg-heroImgMd xl:bg-heroImgLg h-[90vh] bg-cover bg-center">
+    <header className="bg-heroImgSm sm:bg-heroImgMd xl:bg-heroImgLg h-screen bg-cover bg-center">
       <div className="mx-auto flex h-full w-5/6 items-center justify-center sm:w-4/6 xl:w-5/6 xl:justify-start ">
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
           <span className="text-xs tracking-[10px] text-neutral-500 sm:text-base">
