@@ -1,3 +1,4 @@
+import CompanyInfo from "./components/CompanyInfo";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <ProductCategories />
       <FeaturedProducts />
+      <CompanyInfo />
     </div>
   );
 }

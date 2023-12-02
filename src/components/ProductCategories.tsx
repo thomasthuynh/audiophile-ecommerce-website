@@ -7,10 +7,9 @@ import Earphones from "../assets/shared/desktop/image-category-thumbnail-earphon
 type Props = {};
 
 const ProductCategories = (props: Props) => {
-
   return (
-    <section className="py-8">
-      <div className="mx-auto w-5/6 md:flex justify-between">
+    <section className="py-24">
+      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-3">
         <CategoryProduct product="Headphones" image={Headphones} />
         <CategoryProduct product="Speakers" image={Speakers} />
         <CategoryProduct product="Earphones" image={Earphones} />
