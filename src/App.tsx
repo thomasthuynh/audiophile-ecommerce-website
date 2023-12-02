@@ -1,3 +1,4 @@
+import FeaturedProducts from "./components/FeaturedProducts";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import ProductCategories from "./components/ProductCategories";
@@ -8,6 +9,7 @@ function App() {
       <Nav />
       <Hero />
       <ProductCategories />
+      <FeaturedProducts />
     </div>
   );
 }
