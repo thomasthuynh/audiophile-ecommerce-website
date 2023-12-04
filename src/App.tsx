@@ -1,5 +1,6 @@
 import CompanyInfo from "./components/CompanyInfo";
 import FeaturedProducts from "./components/FeaturedProducts";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import ProductCategories from "./components/ProductCategories";
@@ -12,6 +13,7 @@ function App() {
       <ProductCategories />
       <FeaturedProducts />
       <CompanyInfo />
+      <Footer />
     </div>
   );
 }

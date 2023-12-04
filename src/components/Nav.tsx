@@ -11,12 +11,12 @@ type Props = {};
 
 const Nav = (props: Props) => {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
-    SelectedPage.Home,
+    SelectedPage.Home
   );
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
-    <nav className="font-manrope fixed w-full bg-black text-white z-20">
+    <nav className="font-manrope fixed z-20 w-full bg-black text-white">
       <div className="mx-auto w-5/6 border-b border-neutral-500 py-6">
         {/* MENU */}
         <div className="flex items-center justify-between">
@@ -34,7 +34,7 @@ const Nav = (props: Props) => {
             <img src={Logo} alt="Logo" />
           </div>
           <div className="hidden md:flex">
-            <ul className="flex">
+            <ul className="flex space-x-4 md:text-sm min-[880px]:space-x-8 min-[880px]:text-base lg:space-x-12">
               <PageLink
                 page="Home"
                 selectedPage={selectedPage}
@@ -78,7 +78,7 @@ const Nav = (props: Props) => {
               <FaXmark size={25} />
             </button>
 
-            <ul className="flex flex-col">
+            <ul className="flex h-1/3 flex-col justify-between text-lg">
               <PageLink
                 page="Home"
                 selectedPage={selectedPage}

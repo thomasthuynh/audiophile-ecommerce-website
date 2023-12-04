@@ -25,7 +25,7 @@ const CompanyInfo = (props: Props) => {
             Bringing you the <span className="text-primary-500">best</span>{" "}
             audio gear
           </h3>
-          <p className="text-neutral-700 xl:text-lg">
+          <p className="text-neutral-500 xl:text-lg">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
