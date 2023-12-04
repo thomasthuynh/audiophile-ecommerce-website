@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react";
-
-import { ImageSource } from "../types";
-
 // SMALL IMAGES
 import PrimarySpeakerSm from "../assets/home/mobile/image-speaker-zx9.png";
 import SpeakerSm from "../assets/home/mobile/image-speaker-zx7.jpg";
@@ -16,56 +12,12 @@ import EarphonesMd from "../assets/home/tablet/image-earphones-yx1.jpg";
 import PrimarySpeakerLg from "../assets/home/desktop/image-speaker-zx9.png";
 import SpeakerLg from "../assets/home/desktop/image-speaker-zx7.jpg";
 import EarphonesLg from "../assets/home/desktop/image-earphones-yx1.jpg";
+
 import Circles from "../assets/home/desktop/pattern-circles.svg";
 
 type Props = {};
 
-type ProductKey = keyof ImageSource;
-
 const FeaturedProducts = (props: Props) => {
-  const [viewWidth, setViewWidth] = useState<number>(window.innerWidth);
-
-  const imageSource: ImageSource = {
-    primarySpeaker: {
-      small: PrimarySpeakerSm,
-      medium: PrimarySpeakerMd,
-      large: PrimarySpeakerLg,
-    },
-    speaker: {
-      small: SpeakerSm,
-      medium: SpeakerMd,
-      large: SpeakerLg,
-    },
-    earphones: {
-      small: EarphonesSm,
-      medium: EarphonesMd,
-      large: EarphonesLg,
-    },
-  };
-
-  const getImageSize = (product: ProductKey): string | undefined => {
-    if (viewWidth < 768) {
-      return imageSource[product].small;
-    } else if (viewWidth >= 768 && viewWidth < 1280) {
-      return imageSource[product].medium;
-    } else if (viewWidth >= 1280) {
-      return imageSource[product].large;
-    } else {
-      return undefined;
-    }
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <main className="py-8">
@@ -75,20 +27,24 @@ const FeaturedProducts = (props: Props) => {
           <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around">
             {/* IMAGE */}
             <div className="relative mx-auto w-3/5 pb-6 sm:w-2/5 xl:w-2/5 xl:translate-y-[15%]">
-              <img
-                src={getImageSize("primarySpeaker")}
-                alt="ZX9 Speaker"
-                className="relative z-10 mx-auto xl:max-w-[400px] 2xl:max-w-[450px]"
-              />
+              <picture>
+                <source media="(min-width: 1280px)" srcSet={PrimarySpeakerLg} />
+                <source media="(min-width: 768px)" srcSet={PrimarySpeakerMd} />
+                <img
+                  src={PrimarySpeakerSm}
+                  alt="ZX9 Speaker"
+                  className="relative z-10 mx-auto xl:max-w-[400px] 2xl:max-w-[450px]"
+                />
+              </picture>
               <img
                 src={Circles}
                 alt="Circles"
-                className="absolute top-4 scale-[350%] xl:scale-[225%] xl:top-1/4"
+                className="absolute top-4 scale-[350%] xl:top-1/4 xl:scale-[225%]"
               />
             </div>
 
             {/* TEXT AND BUTTON*/}
-            <div className="text-center xl:mx-auto xl:w-2/5 xl:items-start xl:px-4 xl:text-left relative z-10">
+            <div className="relative z-10 text-center xl:mx-auto xl:w-2/5 xl:items-start xl:px-4 xl:text-left">
               <h2 className="py-6 text-4xl uppercase text-white sm:text-5xl">
                 ZX9 Speaker
               </h2>
@@ -105,11 +61,15 @@ const FeaturedProducts = (props: Props) => {
 
         {/* ZX7 SPEAKER */}
         <div className="relative md:col-span-2">
-          <img
-            src={getImageSize("speaker")}
-            alt="ZX7 Speaker"
-            className="w-full rounded-md"
-          />
+          <picture>
+            <source media="(min-width: 1280px)" srcSet={SpeakerLg} />
+            <source media="(min-width: 768px)" srcSet={SpeakerMd} />
+            <img
+              src={SpeakerSm}
+              alt="ZX7 Speaker"
+              className="w-full rounded-md"
+            />
+          </picture>
           <div className="absolute top-[50%] translate-y-[-50%] p-6 sm:p-10 lg:px-16 min-[1440px]:px-24">
             <h2 className="pb-4 text-2xl uppercase text-black min-[480px]:text-3xl sm:pb-6 sm:text-4xl xl:pb-8 xl:text-5xl">
               ZX7 Speaker
@@ -122,11 +82,15 @@ const FeaturedProducts = (props: Props) => {
 
         {/* YX1 EARPHONES IMAGE */}
         <div className="">
-          <img
-            src={getImageSize("earphones")}
-            alt="YX1 Earphones"
-            className="w-full rounded-md"
-          />
+          <picture>
+            <source media="(min-width: 1280px)" srcSet={EarphonesLg} />
+            <source media="(min-width: 768px)" srcSet={EarphonesMd} />
+            <img
+              src={EarphonesSm}
+              alt="YX1 Earphones"
+              className="w-full rounded-md"
+            />
+          </picture>
         </div>
 
         {/* YX1 EARPHONES */}
