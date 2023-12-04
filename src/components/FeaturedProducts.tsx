@@ -16,6 +16,7 @@ import EarphonesMd from "../assets/home/tablet/image-earphones-yx1.jpg";
 import PrimarySpeakerLg from "../assets/home/desktop/image-speaker-zx9.png";
 import SpeakerLg from "../assets/home/desktop/image-speaker-zx7.jpg";
 import EarphonesLg from "../assets/home/desktop/image-earphones-yx1.jpg";
+import Circles from "../assets/home/desktop/pattern-circles.svg";
 
 type Props = {};
 
@@ -70,19 +71,24 @@ const FeaturedProducts = (props: Props) => {
     <main className="py-8">
       <div className="mx-auto grid w-5/6 gap-12 md:grid-cols-2">
         {/* ZX9 SPEAKER */}
-        <div className="bg-primary-500 bg-circles overflow-hidden rounded-md bg-[length:525px_525px] bg-[center_top_-100px] bg-no-repeat px-8 py-20 md:col-span-2 md:bg-[length:775px_775px] md:bg-[center_top_-150px] xl:bg-[left_-175px_top_0px] xl:py-8 xl:bg-[length:925px_925px] min-[1440px]:bg-[length:1025px_1025px] min-[1440px]:bg-[left_-150px_top_0px]">
-          <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around min-[1440px]:w-[90%]">
+        <div className="bg-primary-500 overflow-hidden rounded-md px-8 py-20 md:col-span-2 xl:py-8">
+          <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around">
             {/* IMAGE */}
-            <div className="mx-auto w-3/5 pb-6 sm:w-2/5 xl:translate-y-[20%] xl:w-2/5 xl:translate-y-[15%]">
+            <div className="relative mx-auto w-3/5 pb-6 sm:w-2/5 xl:w-2/5 xl:translate-y-[15%]">
               <img
                 src={getImageSize("primarySpeaker")}
                 alt="ZX9 Speaker"
-                className="xl:max-w-[285px] xl:max-w-[400px]"
+                className="relative z-10 mx-auto xl:max-w-[400px] 2xl:max-w-[450px]"
+              />
+              <img
+                src={Circles}
+                alt="Circles"
+                className="absolute top-4 scale-[350%] xl:scale-[225%] xl:top-1/4"
               />
             </div>
 
             {/* TEXT AND BUTTON*/}
-            <div className="text-center xl:w-1/2 xl:items-start xl:px-4 xl:text-left xl:mx-auto xl:w-2/5">
+            <div className="text-center xl:mx-auto xl:w-2/5 xl:items-start xl:px-4 xl:text-left relative z-10">
               <h2 className="py-6 text-4xl uppercase text-white sm:text-5xl">
                 ZX9 Speaker
               </h2>
