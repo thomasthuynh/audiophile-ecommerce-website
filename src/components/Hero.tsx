@@ -2,7 +2,7 @@
 
 const Hero = () => {
   return (
-    <header className="bg-heroImgSm md:bg-heroImgMd xl:bg-heroImgLg h-[80vh] bg-cover bg-center bg-no-repeat min-[480px]:h-[85vh] sm:h-[95vh] lg:h-screen">
+    <header className="bg-heroImgSm sm:bg-heroImgMd xl:bg-heroImgLg h-[80vh] bg-cover bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] lg:h-screen">
       <div className="mx-auto flex h-full w-5/6 translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start">
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
           <span className="text-xs uppercase tracking-[10px] text-neutral-500 sm:text-base">
