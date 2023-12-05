@@ -2,11 +2,9 @@ import BestGearSm from "../assets/shared/mobile/image-best-gear.jpg";
 import BestGearMd from "../assets/shared/tablet/image-best-gear.jpg";
 import BestGearLg from "../assets/shared/desktop/image-best-gear.jpg";
 
-type Props = {};
-
-const CompanyInfo = (props: Props) => {
+const CompanyInfo = () => {
   return (
-    <section className="py-24">
+    <section className="py-16">
       <div className="mx-auto grid w-5/6 gap-8 xl:grid-cols-2">
         <div className="overflow-hidden rounded-md xl:order-2 min-[1440px]:mx-auto min-[1440px]:w-4/5">
           <picture>

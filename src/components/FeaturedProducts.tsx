@@ -15,13 +15,10 @@ import EarphonesLg from "../assets/home/desktop/image-earphones-yx1.jpg";
 
 import Circles from "../assets/home/desktop/pattern-circles.svg";
 
-type Props = {};
-
-const FeaturedProducts = (props: Props) => {
-
+const FeaturedProducts = () => {
   return (
-    <main className="py-8">
-      <div className="mx-auto grid w-5/6 gap-12 md:grid-cols-2">
+    <main className="py-16">
+      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-2">
         {/* ZX9 SPEAKER */}
         <div className="bg-primary-500 overflow-hidden rounded-md px-8 py-20 md:col-span-2 xl:py-8">
           <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around">

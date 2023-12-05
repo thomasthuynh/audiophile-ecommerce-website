@@ -4,11 +4,9 @@ import Headphones from "../assets/shared/desktop/image-category-thumbnail-headph
 import Speakers from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import Earphones from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 
-type Props = {};
-
-const ProductCategories = (props: Props) => {
+const ProductCategories = () => {
   return (
-    <section className="py-24">
+    <section className="pt-24 pb-16">
       <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-3">
         <CategoryProduct product="Headphones" image={Headphones} />
         <CategoryProduct product="Speakers" image={Speakers} />

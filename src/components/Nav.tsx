@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SelectedPage } from "../types";
+
 import PageLink from "./PageLink";
 
 import Logo from "../assets/shared/desktop/logo.svg";
@@ -7,12 +8,12 @@ import Cart from "../assets/shared/desktop/icon-cart.svg";
 import Hamburger from "../assets/shared/tablet/icon-hamburger.svg";
 import { FaXmark } from "react-icons/fa6";
 
-type Props = {};
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
-const Nav = (props: Props) => {
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(
-    SelectedPage.Home
-  );
+const Nav = ({ selectedPage, setSelectedPage }: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (

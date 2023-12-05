@@ -1,19 +1,20 @@
-import CompanyInfo from "./components/CompanyInfo";
-import FeaturedProducts from "./components/FeaturedProducts";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
+import { useState } from "react";
+import { SelectedPage } from "./types";
+
 import Nav from "./components/Nav";
-import ProductCategories from "./components/ProductCategories";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 function App() {
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>(
+    SelectedPage.Home
+  );
+
   return (
     <div>
-      <Nav />
-      <Hero />
-      <ProductCategories />
-      <FeaturedProducts />
-      <CompanyInfo />
-      <Footer />
+      <Nav selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+      <Home />
+      <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
     </div>
   );
 }
