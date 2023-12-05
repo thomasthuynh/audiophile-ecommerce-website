@@ -11,14 +11,19 @@ import { FaXmark } from "react-icons/fa6";
 type Props = {
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
+  isScrolled: boolean;
 };
 
-const Nav = ({ selectedPage, setSelectedPage }: Props) => {
+const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
     <nav className="font-manrope fixed z-20 w-full bg-black text-white">
-      <div className="mx-auto w-5/6 border-b border-neutral-500 py-6">
+      <div
+        className={`${
+          !isScrolled ? "border-b border-neutral-500" : ""
+        } mx-auto w-5/6 border-neutral-500 py-6`}
+      >
         {/* MENU */}
         <div className="flex items-center justify-between">
           <div className="sm:flex sm:items-center">
