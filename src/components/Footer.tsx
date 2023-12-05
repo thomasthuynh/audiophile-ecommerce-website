@@ -27,7 +27,7 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             />
           </div>
 
-          <ul className="flex flex-col space-y-4 py-12 text-sm md:flex-row md:space-x-6 md:space-y-0 xl:pt-0">
+          <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-6 md:space-y-0 xl:pt-0">
             <PageLink
               page="Home"
               selectedPage={selectedPage}
