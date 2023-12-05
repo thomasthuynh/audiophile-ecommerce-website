@@ -6,14 +6,14 @@ const CompanyInfo = () => {
   return (
     <section className="py-16">
       <div className="mx-auto grid w-5/6 gap-8 xl:grid-cols-2">
-        <div className="overflow-hidden rounded-md xl:order-2 min-[1440px]:mx-auto min-[1440px]:w-4/5">
+        <div className="min-[480px]:max-w-[400px] md:max-w-none xl:order-2 mx-auto min-[1440px]:w-3/4">
           <picture>
             <source media="(min-width: 1280px)" srcSet={BestGearLg} />
             <source media="(min-width: 768px)" srcSet={BestGearMd} />
             <img
               src={BestGearSm}
               alt="Man wearing headphones"
-              className="w-full"
+              className="w-full rounded-md"
             />
           </picture>
         </div>
