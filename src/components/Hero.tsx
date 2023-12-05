@@ -2,13 +2,13 @@
 
 const Hero = () => {
   return (
-    <header className="bg-heroImgSm md:bg-heroImgMd xl:bg-heroImgLg h-[75vh] bg-cover bg-center bg-no-repeat min-[480px]:h-[85vh] sm:h-[95vh] lg:h-screen">
+    <header className="bg-heroImgSm md:bg-heroImgMd xl:bg-heroImgLg h-[80vh] bg-cover bg-center bg-no-repeat min-[480px]:h-[85vh] sm:h-[95vh] lg:h-screen">
       <div className="mx-auto flex h-full w-5/6 translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start">
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
           <span className="text-xs uppercase tracking-[10px] text-neutral-500 sm:text-base">
             New Product
           </span>
-          <h1 className="pb-6 pt-4 text-4xl uppercase text-white sm:pb-8 sm:pt-6 sm:text-6xl">
+          <h1 className="pb-4 pt-4 text-4xl uppercase text-white sm:pb-8 sm:pt-6 sm:text-5xl lg:text-6xl">
             XX99 Mark II Headphones
           </h1>
           <p className="mx-auto pb-6 text-neutral-300 sm:w-[80%] sm:pb-8 sm:text-lg md:w-[90%] xl:mx-0">
