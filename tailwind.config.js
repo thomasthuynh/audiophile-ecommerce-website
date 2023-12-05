@@ -14,9 +14,9 @@ export default {
         manrope: ["Manrope", "sans-serif"],
       },
       backgroundImage: {
-        heroImgSm: "url('./src/assets/home/mobile/image-header.jpg')",
-        heroImgMd: "url('./src/assets/home/tablet/image-header.jpg')",
-        heroImgLg: "url('./src/assets/home/desktop/image-hero.jpg')",
+        heroImgSm: "url('/src/assets/home/mobile/image-header.jpg')",
+        heroImgMd: "url('/src/assets/home/tablet/image-header.jpg')",
+        heroImgLg: "url('/src/assets/home/desktop/image-hero.jpg')",
       },
     },
   },
