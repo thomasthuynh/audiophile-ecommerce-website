@@ -40,7 +40,7 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
             <img src={Logo} alt="Logo" />
           </div>
           <div className="hidden md:flex">
-            <ul className="flex space-x-4 md:text-sm min-[880px]:space-x-8 min-[880px]:text-base lg:space-x-12">
+            <ul className="flex space-x-4 text-sm min-[880px]:space-x-8 lg:space-x-12">
               <PageLink
                 page="Home"
                 selectedPage={selectedPage}
