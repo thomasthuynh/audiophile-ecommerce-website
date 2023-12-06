@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import { SelectedPage } from "./types";
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import ProductListing from "./pages/ProductListing";
+
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -34,7 +37,10 @@ function App() {
         setSelectedPage={setSelectedPage}
         isScrolled={isScrolled}
       />
-      <Home />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/headphones" element={<ProductListing />}/>
+      </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
   );
