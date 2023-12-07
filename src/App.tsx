@@ -5,7 +5,7 @@ import { SelectedPage } from "./types";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import ProductListing from "./pages/ProductListing";
+import ProductModels from "./pages/ProductModels";
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
       />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/headphones" element={<ProductListing />}/>
+        <Route path="/headphones" element={<ProductModels />}/>
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
