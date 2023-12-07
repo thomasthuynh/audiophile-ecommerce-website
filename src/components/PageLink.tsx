@@ -5,15 +5,31 @@ type Props = {
   page: string;
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
+  modalToggled: boolean;
+  setModalToggled: (value: boolean) => void;
 };
 
-const PageLink = ({ page, selectedPage, setSelectedPage }: Props) => {
+const PageLink = ({
+  page,
+  selectedPage,
+  setSelectedPage,
+  modalToggled,
+  setModalToggled,
+}: Props) => {
   const lowerCasePage = page.toLowerCase() as SelectedPage;
+
+  const handleModal = () => {
+    if (modalToggled) {
+      setModalToggled(false);
+    }
+
+    setSelectedPage(lowerCasePage);
+  };
 
   return (
     <Link
       to={`/${page}`}
-      onClick={() => setSelectedPage(lowerCasePage)}
+      onClick={handleModal}
       className="hover:text-primary-500"
     >
       <li

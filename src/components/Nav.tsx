@@ -18,7 +18,7 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
-    <nav className="font-manrope fixed z-20 w-full bg-black text-white">
+    <nav className="fixed z-20 w-full bg-black font-manrope text-white">
       <div
         className={`${
           !isScrolled ? "border-b border-neutral-500" : ""
@@ -45,21 +45,29 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Headphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Speakers"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Earphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
             </ul>
           </div>
@@ -78,7 +86,7 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
         >
           <div className="relative mx-auto flex h-full w-5/6 items-center justify-center text-center">
             <button
-              onClick={() => setModalToggled(!modalToggled)}
+              onClick={() => setModalToggled(false)}
               className="absolute -left-1 top-6"
             >
               <FaXmark size={25} />
@@ -89,21 +97,29 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Headphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Speakers"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="Earphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                modalToggled={modalToggled}
+                setModalToggled={setModalToggled}
               />
             </ul>
           </div>

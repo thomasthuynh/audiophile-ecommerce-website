@@ -39,7 +39,7 @@ function App() {
       />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/headphones" element={<ProductModels />}/>
+        <Route path={`/${selectedPage}`} element={<ProductModels selectedPage={selectedPage} />}/>
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
