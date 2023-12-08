@@ -42,28 +42,28 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
           <div className="hidden md:flex">
             <ul className="flex space-x-4 text-sm min-[880px]:space-x-8 lg:space-x-12">
               <PageLink
-                page="Home"
+                page="home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Headphones"
+                page="headphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Speakers"
+                page="speakers"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Earphones"
+                page="earphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}

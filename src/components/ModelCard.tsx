@@ -12,7 +12,7 @@ const ModelCard = ({ item }: Props) => {
       <picture>
         <source media="(min-width: 1280px)" srcSet={item.categoryImage.desktop}/>
         <source media="(min-width: 768px)" srcSet={item.categoryImage.tablet}/>
-        <img src={item.categoryImage.mobile} alt="XX99 Mark II Headphones" className="rounded pb-4"/>
+        <img src={item.categoryImage.mobile} alt="XX99 Mark II Headphones" className="rounded mb-4"/>
       </picture>
       {item.new && <p className="text-xs uppercase tracking-[10px] text-primary-500 py-2 sm:text-base">New Product</p>}
       <h2 className="text-2xl w-[90%] text-center uppercase pt-4">{item.name}</h2>

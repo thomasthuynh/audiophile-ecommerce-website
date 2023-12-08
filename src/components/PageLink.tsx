@@ -16,14 +16,13 @@ const PageLink = ({
   modalToggled,
   setModalToggled,
 }: Props) => {
-  const lowerCasePage = page.toLowerCase() as SelectedPage;
+  // const lowerCasePage = page.toLowerCase() as SelectedPage;
 
   const handleModal = () => {
     if (modalToggled) {
       setModalToggled(false);
     }
-
-    setSelectedPage(lowerCasePage);
+    setSelectedPage(page as SelectedPage);
   };
 
   return (
@@ -34,7 +33,7 @@ const PageLink = ({
     >
       <li
         className={`${
-          lowerCasePage === selectedPage ? "text-primary-500" : ""
+          page === selectedPage ? "text-primary-500" : ""
         } font-bold uppercase tracking-[1px]`}
       >
         {page}

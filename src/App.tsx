@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { SelectedPage } from "./types";
 
 import Nav from "./components/Nav";
@@ -7,12 +7,12 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ProductModels from "./pages/ProductModels";
 
-
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home,
   );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +30,11 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const currentPath = location.pathname.replace("/", "");
+    setSelectedPage(currentPath as SelectedPage);
+  }, [location]);
+
   return (
     <div>
       <Nav
@@ -39,7 +44,10 @@ function App() {
       />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path={`/${selectedPage}`} element={<ProductModels selectedPage={selectedPage} />}/>
+        <Route
+          path={`/${selectedPage}`}
+          element={<ProductModels selectedPage={selectedPage} />}
+        />
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
