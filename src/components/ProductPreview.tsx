@@ -5,7 +5,7 @@ type Props = {
   item: Product;
 }
 
-const ModelCard = ({ item }: Props) => {
+const ProductPreview = ({ item }: Props) => {
 
   return (
     <div className="w-5/6 mx-auto flex flex-col items-center py-16">
@@ -22,4 +22,4 @@ const ModelCard = ({ item }: Props) => {
   )
 }
 
-export default ModelCard
+export default ProductPreview;

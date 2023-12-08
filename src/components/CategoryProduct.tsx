@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ArrowRight from "../assets/shared/desktop/icon-arrow-right.svg";
 
 type Props = {
@@ -13,12 +14,15 @@ const CategoryProduct = ({ product, image }: Props) => {
 
         <div className="-mb-4 lg:-mb-8 xl:-mb-10">
           <p className="font-bold uppercase md:pb-2 xl:text-xl">{product}</p>
-          <button className="mx-auto mt-2 flex items-center text-xs font-bold uppercase text-neutral-500 xl:text-base hover:text-primary-500">
+          <Link
+            to={`/${product}`}
+            className="mt-2 flex items-center justify-center text-xs font-bold uppercase text-neutral-500 hover:text-primary-500 xl:text-base"
+          >
             Shop
             <span className="ml-2">
               <img src={ArrowRight} alt="Arrow right" />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

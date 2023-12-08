@@ -8,9 +8,9 @@ const ProductCategories = () => {
   return (
     <section className="pt-24 pb-16">
       <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-3">
-        <CategoryProduct product="Headphones" image={Headphones} />
-        <CategoryProduct product="Speakers" image={Speakers} />
-        <CategoryProduct product="Earphones" image={Earphones} />
+        <CategoryProduct product="headphones" image={Headphones} />
+        <CategoryProduct product="speakers" image={Speakers} />
+        <CategoryProduct product="earphones" image={Earphones} />
       </div>
     </section>
   );

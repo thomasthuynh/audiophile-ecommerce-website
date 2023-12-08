@@ -2,22 +2,19 @@ import ProductCategories from "../components/ProductCategories";
 import CompanyInfo from "../components/CompanyInfo";
 import ProductPreview from "../components/ProductPreview";
 
-import { Product } from "../types";
+import { headphones } from "../assets/data";
 
-type Props = {
-  product: string
-  productData: Product[]
-};
+type Props = {};
 
-const ProductModels = ({ product, productData }: Props) => {
+const ProductModels = ({}: Props) => {
   return (
     <div className="pb-16 pt-[74px]">
       <div>
         <h1 className="bg-black py-8 text-center text-2xl uppercase tracking-[2px] text-white">
-          {product}
+          Headphones
         </h1>
       </div>
-      {productData.map((item: Product) => (
+      {headphones.map((item) => (
         <ProductPreview key={item.id} item={item} />
       ))}
       <ProductCategories />

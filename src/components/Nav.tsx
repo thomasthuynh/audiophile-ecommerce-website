@@ -45,29 +45,21 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
                 page="home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
-                modalToggled={modalToggled}
-                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="headphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
-                modalToggled={modalToggled}
-                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="speakers"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
-                modalToggled={modalToggled}
-                setModalToggled={setModalToggled}
               />
               <PageLink
                 page="earphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
-                modalToggled={modalToggled}
-                setModalToggled={setModalToggled}
               />
             </ul>
           </div>
@@ -94,28 +86,28 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
 
             <ul className="flex h-1/3 flex-col justify-between text-lg">
               <PageLink
-                page="Home"
+                page="home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Headphones"
+                page="headphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Speakers"
+                page="speakers"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
                 setModalToggled={setModalToggled}
               />
               <PageLink
-                page="Earphones"
+                page="earphones"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
                 modalToggled={modalToggled}
