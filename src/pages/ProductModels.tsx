@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import ProductCategories from "../components/ProductCategories";
 import CompanyInfo from "../components/CompanyInfo";
 import ModelCard from "../components/ModelCard";
@@ -10,6 +12,10 @@ type Props = {
 };
 
 const ProductModels = ({ selectedPage }: Props) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="pb-16 pt-[74px]">

@@ -33,7 +33,14 @@ function App() {
   useEffect(() => {
     const currentPath = location.pathname.replace("/", "");
     setSelectedPage(currentPath as SelectedPage);
+    if (currentPath === "") {
+      setSelectedPage(SelectedPage.Home);
+    } else {
+      setSelectedPage(currentPath as SelectedPage);
+    }
   }, [location]);
+
+  console.log(selectedPage);
 
   return (
     <div>
@@ -43,7 +50,7 @@ function App() {
         isScrolled={isScrolled}
       />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path={`/${selectedPage}`}
           element={<ProductModels selectedPage={selectedPage} />}
