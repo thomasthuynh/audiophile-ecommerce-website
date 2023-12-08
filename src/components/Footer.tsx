@@ -29,22 +29,22 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
 
           <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-6 md:space-y-0 xl:pt-0">
             <PageLink
-              page="Home"
+              page="home"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <PageLink
-              page="Headphones"
+              page="headphones"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <PageLink
-              page="Speakers"
+              page="speakers"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <PageLink
-              page="Earphones"
+              page="earphones"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />

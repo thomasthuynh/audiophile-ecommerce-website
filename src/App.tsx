@@ -40,7 +40,7 @@ function App() {
     }
   }, [location]);
 
-  console.log(selectedPage);
+  // console.log(selectedPage);
 
   return (
     <div>
