@@ -22,7 +22,7 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
       <div
         className={`${
           !isScrolled ? "border-b border-neutral-500" : ""
-        } mx-auto w-5/6 border-neutral-500 py-6`}
+        } mx-auto w-5/6 py-6`}
       >
         {/* MENU */}
         <div className="flex items-center justify-between">

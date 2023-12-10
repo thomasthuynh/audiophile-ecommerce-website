@@ -7,7 +7,7 @@ import Earphones from "../assets/shared/desktop/image-category-thumbnail-earphon
 const ProductCategories = () => {
   return (
     <section className="pt-24 pb-16">
-      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-3">
+      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-3 md:gap-4">
         <CategoryProduct product="headphones" image={Headphones} />
         <CategoryProduct product="speakers" image={Speakers} />
         <CategoryProduct product="earphones" image={Earphones} />
