@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../assets/shared/desktop/logo.svg";
 import { SelectedPage } from "../types";
 import PageLink from "./PageLink";
@@ -13,18 +14,20 @@ type Props = {
 
 const Footer = ({ selectedPage, setSelectedPage }: Props) => {
   return (
-    <footer className="relative bg-black text-white mt-16">
+    <footer className="relative mt-16 bg-black text-white">
       <div className="relative mx-auto h-full w-5/6 pb-8 pt-12 xl:pb-12 xl:pt-20">
-        <div className="bg-primary-500 absolute left-1/2 top-0 h-1 w-[90px] -translate-x-1/2 md:left-0 md:translate-x-0"></div>
+        <div className="absolute left-1/2 top-0 h-1 w-[90px] -translate-x-1/2 bg-primary-500 md:left-0 md:translate-x-0"></div>
 
         {/* LOGO AND LINKS */}
         <div className="flex flex-col items-center justify-between text-center md:items-start md:text-start xl:flex-row">
           <div>
-            <img
-              src={Logo}
-              alt="Logo"
-              className="flex items-center fill-slate-500"
-            />
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="Logo"
+                className="flex items-center fill-slate-500"
+              />
+            </Link>
           </div>
 
           <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-6 md:space-y-0 xl:pt-0">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SelectedPage } from "../types";
 
 import PageLink from "./PageLink";
@@ -33,11 +34,15 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
             >
               <img src={Hamburger} alt="Hamburger menu" className="h-[15px]" />
             </button>
-            <img src={Logo} alt="Logo" className="hidden sm:block" />
+            <Link to="/">
+              <img src={Logo} alt="Logo" className="hidden sm:block" />
+            </Link>
           </div>
 
           <div className="sm:hidden">
-            <img src={Logo} alt="Logo" />
+            <Link to="/">
+              <img src={Logo} alt="Logo" />
+            </Link>
           </div>
           <div className="hidden md:flex">
             <ul className="flex space-x-4 text-sm min-[880px]:space-x-8 lg:space-x-12">

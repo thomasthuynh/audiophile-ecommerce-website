@@ -12,7 +12,7 @@ const ModelList = ({ product, productData }: Props) => {
       <div className="bg-black py-8 text-center text-2xl uppercase tracking-[2px] text-white md:py-12 md:text-3xl">
         <h1>{product}</h1>
       </div>
-      <div className="py-16">
+      <div className="py-8">
         {productData.map((item: Product, index) => (
           <ProductPreview key={item.id} item={item} index={index} />
         ))}
