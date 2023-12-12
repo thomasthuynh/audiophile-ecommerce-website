@@ -101,7 +101,7 @@ export const headphones: Product[] = [
           import.meta.url,
         ).href,
         desktop: new URL(
-          ".product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg",
+          "./product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg",
           import.meta.url,
         ).href,
       },
