@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import ProductModels from "./pages/ProductModels";
 
 import { headphones, speakers, earphones } from "./assets/data";
+import ProductInfo from "./pages/ProductInfo";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -55,6 +56,10 @@ function App() {
           element={
             <ProductModels product="earphones" productData={earphones} />
           }
+        />
+        <Route
+          path="/headphones/:id"
+          element={<ProductInfo productData={headphones} />}
         />
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />

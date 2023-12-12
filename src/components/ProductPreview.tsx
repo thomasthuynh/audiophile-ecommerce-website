@@ -24,7 +24,7 @@ const ProductPreview = ({ item, index }: Props) => {
           />
           <img
             src={item.categoryImage.mobile}
-            alt="XX99 Mark II Headphones"
+            alt={item.name}
             className="w-full rounded-md"
           />
         </picture>
