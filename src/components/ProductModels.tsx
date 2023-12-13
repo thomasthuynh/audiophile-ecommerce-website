@@ -1,9 +1,5 @@
-import ProductCategories from "../components/ProductCategories";
-import CompanyInfo from "../components/CompanyInfo";
-ProductPreview;
-
 import { Product } from "../types";
-import ProductPreview from "../components/ProductPreview";
+import ProductPreview from "./ProductPreview";
 
 type Props = {
   product: string;
@@ -22,8 +18,6 @@ const ProductModels = ({ product, productData }: Props) => {
         ))}
       </div>
 
-      <ProductCategories />
-      <CompanyInfo />
     </div>
   );
 };

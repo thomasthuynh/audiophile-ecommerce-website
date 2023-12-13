@@ -5,10 +5,11 @@ import { SelectedPage } from "./types";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import ProductModels from "./pages/ProductModels";
+import ProductModels from "./components/ProductModels";
 
 import { headphones, speakers, earphones } from "./assets/data";
-import ProductInfo from "./pages/ProductInfo";
+import ProductInfo from "./components/ProductInfo";
+import ProductLayout from "./pages/ProductLayout";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -41,26 +42,21 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/headphones"
-          element={
-            <ProductModels product="headphones" productData={headphones} />
-          }
-        />
-        <Route
-          path="/speakers"
-          element={<ProductModels product="speakers" productData={speakers} />}
-        />
-        <Route
-          path="/earphones"
-          element={
-            <ProductModels product="earphones" productData={earphones} />
-          }
-        />
-        <Route
-          path="/headphones/:id"
-          element={<ProductInfo productData={headphones} />}
-        />
+
+        {/* HEADPHONES */}
+        <Route element={<ProductLayout />}>
+          <Route
+            path="/headphones"
+            element={
+              <ProductModels product={"headphones"} productData={headphones} />
+            }
+          />
+          <Route
+            path="/headphones/:slug"
+            element={<ProductInfo productData={headphones} />}
+          />
+        </Route>
+
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
