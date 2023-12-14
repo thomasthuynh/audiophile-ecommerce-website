@@ -10,7 +10,7 @@ type Props = {
 const ProductInfo = ({ productData }: Props) => {
   const { slug } = useParams();
 
-  const product = productData.find((item) => item.slug === slug)
+  const product = productData.find((item) => item.slug === slug);
 
   if (!product) {
     return <div className="pt-[74px]">Product not found</div>;
@@ -25,7 +25,10 @@ const ProductInfo = ({ productData }: Props) => {
 
         <div className="py-4">
           <picture>
-            <source media="(min-width: 1280px)" srcSet={product.image.desktop} />
+            <source
+              media="(min-width: 1280px)"
+              srcSet={product.image.desktop}
+            />
             <source media="(min-width: 768px)" srcSet={product.image.tablet} />
             <img
               src={product.image.mobile}
@@ -46,7 +49,9 @@ const ProductInfo = ({ productData }: Props) => {
             {product.name}
           </h2>
 
-          <p className="py-6 text-neutral-500 xl:text-lg">{product.description}</p>
+          <p className="py-6 text-neutral-500 xl:text-lg">
+            {product.description}
+          </p>
           <p className="text-lg font-bold tracking-[1px]">$ {product.price}</p>
         </div>
 
@@ -76,8 +81,14 @@ const ProductInfo = ({ productData }: Props) => {
 
         <div className="grid gap-4 py-16">
           <picture>
-            <source media="(min-width: 1280px)" srcSet={product.gallery.first.desktop} />
-            <source media="(min-width: 768px)" srcSet={product.gallery.first.tablet} />
+            <source
+              media="(min-width: 1280px)"
+              srcSet={product.gallery.first.desktop}
+            />
+            <source
+              media="(min-width: 768px)"
+              srcSet={product.gallery.first.tablet}
+            />
             <img
               src={product.gallery.first.mobile}
               alt="Gallery image"
@@ -86,8 +97,14 @@ const ProductInfo = ({ productData }: Props) => {
           </picture>
 
           <picture>
-            <source media="(min-width: 1280px)" srcSet={product.gallery.second.desktop} />
-            <source media="(min-width: 768px)" srcSet={product.gallery.second.tablet} />
+            <source
+              media="(min-width: 1280px)"
+              srcSet={product.gallery.second.desktop}
+            />
+            <source
+              media="(min-width: 768px)"
+              srcSet={product.gallery.second.tablet}
+            />
             <img
               src={product.gallery.second.mobile}
               alt="Gallery image"
@@ -96,8 +113,14 @@ const ProductInfo = ({ productData }: Props) => {
           </picture>
 
           <picture>
-            <source media="(min-width: 1280px)" srcSet={product.gallery.third.desktop} />
-            <source media="(min-width: 768px)" srcSet={product.gallery.third.tablet} />
+            <source
+              media="(min-width: 1280px)"
+              srcSet={product.gallery.third.desktop}
+            />
+            <source
+              media="(min-width: 768px)"
+              srcSet={product.gallery.third.tablet}
+            />
             <img
               src={product.gallery.third.mobile}
               alt="Gallery image"
@@ -106,9 +129,6 @@ const ProductInfo = ({ productData }: Props) => {
           </picture>
         </div>
       </div>
-
-      <ProductCategories />
-      <CompanyInfo />
     </div>
   );
 };
