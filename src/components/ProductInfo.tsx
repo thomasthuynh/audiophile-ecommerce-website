@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Product } from "../types";
-import CompanyInfo from "./CompanyInfo";
-import ProductCategories from "./ProductCategories";
+
+import { BsArrowLeft } from "react-icons/bs";
 
 type Props = {
   productData: Product[];
@@ -19,8 +19,12 @@ const ProductInfo = ({ productData }: Props) => {
   return (
     <div className="pt-[74px]">
       <div className="mx-auto w-5/6">
-        <Link to={`/${product.category}`}>
-          <div className="py-4 text-neutral-500">Go Back</div>
+        <Link
+          to={`/${product.category}`}
+          className="my-4 inline-flex items-center capitalize text-neutral-500"
+        >
+          <BsArrowLeft className="mr-2" />
+          <p>{product.category}</p>
         </Link>
 
         <div className="py-4">
@@ -45,14 +49,14 @@ const ProductInfo = ({ productData }: Props) => {
             </p>
           )}
 
-          <h2 className="pt-4 text-2xl uppercase md:text-3xl xl:text-4xl">
+          <h2 className="pt-4 text-2xl uppercase sm:text-3xl xl:text-4xl">
             {product.name}
           </h2>
 
           <p className="py-6 text-neutral-500 xl:text-lg">
             {product.description}
           </p>
-          <p className="text-lg font-bold tracking-[1px]">$ {product.price}</p>
+          <p className="text-lg font-bold tracking-[1px]">${product.price}</p>
         </div>
 
         <div className="flex gap-4 py-6">
@@ -69,14 +73,16 @@ const ProductInfo = ({ productData }: Props) => {
 
         <div>
           <h3 className="py-4 text-xl uppercase">In The Box</h3>
-          {product.includes.map((addon, index) => (
-            <p className="text-neutral-500" key={index}>
-              <span className="pr-4 font-bold text-primary-500">
-                {addon.quantity}x
-              </span>
-              {addon.item}
-            </p>
-          ))}
+          <ul>
+            {product.includes.map((addon, index) => (
+              <li className="py-1 text-neutral-500" key={index}>
+                <span className="pr-4 font-bold text-primary-500">
+                  {addon.quantity}x
+                </span>
+                {addon.item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="grid gap-4 py-16">

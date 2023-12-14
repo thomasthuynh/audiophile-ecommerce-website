@@ -40,8 +40,11 @@ const ProductPreview = ({ item, index }: Props) => {
         <h2 className="pt-4 text-2xl uppercase sm:text-3xl xl:text-4xl">
           {item.name}
         </h2>
-        <p className="py-4 text-neutral-500 xl:text-lg">{item.description}</p>
-        <Link to={`/${item.category}/${item.slug}`} className="inline-block bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
+        <p className="py-6 text-neutral-500 xl:text-lg">{item.description}</p>
+        <Link
+          to={`/${item.category}/${item.slug}`}
+          className="inline-block bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+        >
           See Product
         </Link>
       </div>
