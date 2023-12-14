@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+
 import { SelectedPage } from "./types";
-
-import Home from "./pages/Home";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import ProductModels from "./components/ProductModels";
-
 import { headphones, speakers, earphones } from "./assets/data";
-import ProductInfo from "./components/ProductInfo";
+
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
+
 import ProductLayout from "./pages/ProductLayout";
+import ProductModels from "./components/ProductModels";
+import ProductInfo from "./components/ProductInfo";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home,
   );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,10 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div>
@@ -57,6 +63,33 @@ function App() {
           />
         </Route>
 
+        {/* SPEAKERS */}
+        <Route element={<ProductLayout />}>
+          <Route
+            path="/speakers"
+            element={
+              <ProductModels product={"speakers"} productData={speakers} />
+            }
+          />
+          <Route
+            path="/speakers/:slug"
+            element={<ProductInfo productData={speakers} />}
+          />
+        </Route>
+
+        {/* EARPHONES */}
+        <Route element={<ProductLayout />}>
+          <Route
+            path="/earphones"
+            element={
+              <ProductModels product={"earphones"} productData={earphones} />
+            }
+          />
+          <Route
+            path="/earphones/:slug"
+            element={<ProductInfo productData={earphones} />}
+          />
+        </Route>
       </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Product } from "../types";
 
 type Props = {
@@ -11,7 +12,7 @@ const ProductPreview = ({ item, index }: Props) => {
       <div
         className={`${
           index % 2 === 1 && "xl:order-2"
-        } mb-6 max-w-[400px] md:max-w-[850px] xl:w-2/5`}
+        } max-w-[400px] pb-4 md:max-w-[850px] xl:w-2/5`}
       >
         <picture>
           <source
@@ -36,13 +37,13 @@ const ProductPreview = ({ item, index }: Props) => {
             New Product
           </p>
         )}
-        <h2 className="pt-4 text-2xl uppercase md:text-3xl xl:text-4xl">
+        <h2 className="pt-4 text-2xl uppercase sm:text-3xl xl:text-4xl">
           {item.name}
         </h2>
-        <p className="py-6 text-neutral-500 xl:text-lg">{item.description}</p>
-        <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
+        <p className="py-4 text-neutral-500 xl:text-lg">{item.description}</p>
+        <Link to={`/${item.category}/${item.slug}`} className="inline-block bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
           See Product
-        </button>
+        </Link>
       </div>
     </div>
   );

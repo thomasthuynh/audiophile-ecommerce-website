@@ -19,7 +19,7 @@ const ProductInfo = ({ productData }: Props) => {
   return (
     <div className="pt-[74px]">
       <div className="mx-auto w-5/6">
-        <Link to="/headphones">
+        <Link to={`/${product.category}`}>
           <div className="py-4 text-neutral-500">Go Back</div>
         </Link>
 

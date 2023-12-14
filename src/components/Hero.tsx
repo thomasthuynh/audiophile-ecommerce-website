@@ -1,8 +1,8 @@
-
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <header className="bg-heroImgSm sm:bg-heroImgMd xl:bg-heroImgLg h-[80vh] bg-cover bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] lg:h-screen">
+    <header className="h-[80vh] bg-heroImgSm bg-cover bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] sm:bg-heroImgMd lg:h-screen xl:bg-heroImgLg">
       <div className="mx-auto flex h-full w-5/6 translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start">
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
           <span className="text-xs uppercase tracking-[10px] text-neutral-500 sm:text-base">
@@ -15,9 +15,12 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <button className="bg-primary-500 hover:bg-primary-300 px-6 py-3 text-sm uppercase tracking-[1px] text-white sm:px-8 sm:py-4 sm:text-base">
+          <Link
+            to="/headphones/xx99-mark-two-headphones"
+            className="inline-block bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+          >
             See Product
-          </button>
+          </Link>
         </div>
       </div>
     </header>

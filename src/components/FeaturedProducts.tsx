@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // SMALL IMAGES
 import PrimarySpeakerSm from "../assets/home/mobile/image-speaker-zx9.png";
 import SpeakerSm from "../assets/home/mobile/image-speaker-zx7.jpg";
@@ -18,9 +20,9 @@ import Circles from "../assets/home/desktop/pattern-circles.svg";
 const FeaturedProducts = () => {
   return (
     <main className="py-16">
-      <div className="mx-auto grid w-5/6 gap-8 xl:gap-12 md:grid-cols-2">
+      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-2 xl:gap-12">
         {/* ZX9 SPEAKER */}
-        <div className="bg-primary-500 overflow-hidden rounded-md px-8 py-20 md:col-span-2 xl:py-8">
+        <div className="overflow-hidden rounded-md bg-primary-500 px-8 py-20 md:col-span-2 xl:py-8">
           <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around">
             {/* IMAGE */}
             <div className="relative mx-auto w-3/5 pb-6 sm:w-2/5 xl:w-2/5 xl:translate-y-[15%]">
@@ -49,9 +51,12 @@ const FeaturedProducts = () => {
                 Upgrade to premium speakers that are phenomenally built to
                 deliver truly remarkable sound.
               </p>
-              <button className="transparent bg-black px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-neutral-700 sm:px-8 sm:py-4 sm:text-base xl:px-6 xl:py-3">
+              <Link
+                to="/speakers/zx9-speaker"
+                className="transparent inline-block bg-black px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-neutral-700 sm:px-8 sm:py-4 sm:text-base xl:px-6 xl:py-3"
+              >
                 See Product
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -71,9 +76,12 @@ const FeaturedProducts = () => {
             <h2 className="pb-4 text-2xl uppercase text-black min-[480px]:text-3xl sm:pb-6 sm:text-4xl xl:pb-8 xl:text-5xl">
               ZX7 Speaker
             </h2>
-            <button className="border-[1px] border-black bg-transparent px-4 py-2 text-sm uppercase tracking-[1px] text-black hover:bg-black hover:text-white sm:px-8 sm:py-4 sm:text-base">
+            <Link
+              to="/speakers/zx7-speaker"
+              className="inline-block border-[1px] border-black bg-transparent px-4 py-2 text-sm uppercase tracking-[1px] text-black hover:bg-black hover:text-white sm:px-8 sm:py-4 sm:text-base"
+            >
               See Product
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -96,9 +104,12 @@ const FeaturedProducts = () => {
             <h2 className="pb-4 text-2xl uppercase text-black min-[480px]:text-3xl sm:pb-6 sm:text-4xl xl:pb-8 xl:text-5xl">
               YX1 Earphones
             </h2>
-            <button className="border-[1px] border-black bg-transparent px-4 py-2 text-sm uppercase tracking-[1px] text-black hover:bg-black hover:text-white sm:px-8 sm:py-4 sm:text-base">
+            <Link
+              to="/earphones/yx1-earphones"
+              className="inline-block border-[1px] border-black bg-transparent px-4 py-2 text-sm uppercase tracking-[1px] text-black hover:bg-black hover:text-white sm:px-8 sm:py-4 sm:text-base"
+            >
               See Product
-            </button>
+            </Link>
           </div>
         </div>
       </div>
