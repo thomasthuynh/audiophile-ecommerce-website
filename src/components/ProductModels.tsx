@@ -9,8 +9,8 @@ type Props = {
 const ProductModels = ({ product, productData }: Props) => {
   return (
     <div className="pt-[74px]">
-      <div className="pb-0">
-        <div className="bg-black py-8 text-center text-2xl uppercase tracking-[2px] text-white">
+      <div className="md:mb-8 xl:mb-16">
+        <div className="bg-black py-8 text-center text-2xl uppercase tracking-[2px] text-white md:mb-8 xl:mb-16">
           <h1>{product}</h1>
         </div>
         {productData.map((item: Product, index) => (
