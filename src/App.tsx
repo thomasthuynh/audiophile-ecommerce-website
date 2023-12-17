@@ -40,7 +40,7 @@ function App() {
   }, [pathname]);
 
   return (
-    <div>
+    <div className="max-w-[2560px] mx-auto">
       <Nav
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}

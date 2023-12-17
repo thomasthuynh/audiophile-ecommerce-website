@@ -19,7 +19,7 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
-    <nav className="fixed z-20 w-full bg-black font-manrope text-white">
+    <nav className="fixed z-20 mx-auto w-full max-w-[2560px] bg-black text-white">
       <div
         className={`${
           !isScrolled ? "border-b border-neutral-500" : ""
