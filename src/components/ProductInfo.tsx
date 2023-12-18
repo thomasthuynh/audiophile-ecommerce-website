@@ -30,7 +30,7 @@ const ProductInfo = ({ productData }: Props) => {
         {/* PRODUCT */}
         <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12 xl:justify-between">
           {/*IMAGE */}
-          <div className="py-4 md:w-[45%] md:max-w-[400px] md:pr-4 xl:max-w-[750px]">
+          <div className="py-4 md:w-[45%] md:max-w-[400px] md:pr-4 xl:max-w-none">
             <picture>
               <source
                 media="(min-width: 1280px)"
@@ -49,7 +49,7 @@ const ProductInfo = ({ productData }: Props) => {
           </div>
 
           {/* INFO */}
-          <div className="flex max-w-[850px] flex-col md:flex-1 md:justify-center xl:w-1/2 xl:flex-none">
+          <div className="flex flex-col md:flex-1 md:justify-center xl:w-1/2 xl:flex-none">
             <div className="xl:w-[90%] mx-auto 2xl:w-5/6">
               <div>
                 {product.new && (
