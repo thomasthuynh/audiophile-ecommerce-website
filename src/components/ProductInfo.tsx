@@ -73,6 +73,7 @@ const ProductInfo = ({ productData }: Props) => {
               <div className="flex gap-4 py-6">
                 <input
                   type="number"
+                  min={1}
                   className="w-1/3 max-w-[115px] bg-gray-100 p-4 font-bold"
                 />
                 <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">

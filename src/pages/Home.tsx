@@ -1,14 +1,14 @@
 import CompanyInfo from "../components/CompanyInfo";
-import FeaturedProducts from "../components/FeaturedProducts";
+import Featured from "../components/Featured";
 import Hero from "../components/Hero";
-import ProductCategories from "../components/ProductCategories";
+import Categories from "../components/Categories";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <ProductCategories />
-      <FeaturedProducts />
+      <Categories />
+      <Featured />
       <CompanyInfo />
     </div>
   );

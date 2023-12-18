@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 
-import ProductCategories from "../components/ProductCategories";
+import Categories from "../components/Categories";
 import CompanyInfo from "../components/CompanyInfo";
 
 const ProductLayout = () => {
   return (
     <div>
       <Outlet />
-      <ProductCategories />
+      <Categories />
       <CompanyInfo />
     </div>
   );

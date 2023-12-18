@@ -17,7 +17,7 @@ import EarphonesLg from "../assets/home/desktop/image-earphones-yx1.jpg";
 
 import Circles from "../assets/home/desktop/pattern-circles.svg";
 
-const FeaturedProducts = () => {
+const Featured = () => {
   return (
     <main className="py-16">
       <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-2 xl:gap-12">
@@ -117,4 +117,4 @@ const FeaturedProducts = () => {
   );
 };
 
-export default FeaturedProducts;
+export default Featured;

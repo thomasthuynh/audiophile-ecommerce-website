@@ -6,7 +6,7 @@ type Props = {
   index: number;
 };
 
-const ProductPreview = ({ item, index }: Props) => {
+const Preview = ({ item, index }: Props) => {
   return (
     <div className="mx-auto flex w-5/6 flex-col items-center py-16 xl:flex-row xl:justify-around">
       <div
@@ -52,4 +52,4 @@ const ProductPreview = ({ item, index }: Props) => {
   );
 };
 
-export default ProductPreview;
+export default Preview;

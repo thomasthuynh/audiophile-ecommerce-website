@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 
 import ProductLayout from "./pages/ProductLayout";
-import ProductModels from "./components/ProductModels";
+import Models from "./components/Models";
 import ProductInfo from "./components/ProductInfo";
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
           <Route
             path="/headphones"
             element={
-              <ProductModels product={"headphones"} productData={headphones} />
+              <Models product={"headphones"} productData={headphones} />
             }
           />
           <Route
@@ -68,7 +68,7 @@ function App() {
           <Route
             path="/speakers"
             element={
-              <ProductModels product={"speakers"} productData={speakers} />
+              <Models product={"speakers"} productData={speakers} />
             }
           />
           <Route
@@ -82,7 +82,7 @@ function App() {
           <Route
             path="/earphones"
             element={
-              <ProductModels product={"earphones"} productData={earphones} />
+              <Models product={"earphones"} productData={earphones} />
             }
           />
           <Route

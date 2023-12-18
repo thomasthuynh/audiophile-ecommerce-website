@@ -1,12 +1,12 @@
 import { Product } from "../types";
-import ProductPreview from "./ProductPreview";
+import Preview from "./Preview";
 
 type Props = {
   product: string;
   productData: Product[];
 };
 
-const ProductModels = ({ product, productData }: Props) => {
+const Models = ({ product, productData }: Props) => {
   return (
     <div className="pt-[74px]">
       <div className="md:mb-8 xl:mb-16">
@@ -14,11 +14,11 @@ const ProductModels = ({ product, productData }: Props) => {
           <h1>{product}</h1>
         </div>
         {productData.map((item: Product, index) => (
-          <ProductPreview key={item.id} item={item} index={index} />
+          <Preview key={item.id} item={item} index={index} />
         ))}
       </div>
     </div>
   );
 };
 
-export default ProductModels;
+export default Models;

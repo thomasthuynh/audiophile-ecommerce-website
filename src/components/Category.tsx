@@ -6,7 +6,7 @@ type Props = {
   image: string;
 };
 
-const CategoryProduct = ({ product, image }: Props) => {
+const Category = ({ product, image }: Props) => {
   return (
     <div className="my-8 rounded-md bg-gray-100 sm:my-16">
       <div className="flex -translate-y-[30%] flex-col items-center">
@@ -29,4 +29,4 @@ const CategoryProduct = ({ product, image }: Props) => {
   );
 };
 
-export default CategoryProduct;
+export default Category;
