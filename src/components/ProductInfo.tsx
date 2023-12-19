@@ -1,15 +1,18 @@
+import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Product } from "../types";
+import CartContext from "../context/CartContext";
 
 import { BsArrowLeft } from "react-icons/bs";
-import QuantityInput from "../ui/QuantityInput";
 
 type Props = {
   productData: Product[];
+  itemQuantity: number;
 };
 
-const ProductInfo = ({ productData }: Props) => {
+const ProductInfo = ({ productData, itemQuantity }: Props) => {
   const { slug } = useParams();
+  const { state, dispatch } = useContext(CartContext);
 
   const product = productData.find((item) => item.slug === slug);
 
@@ -72,16 +75,27 @@ const ProductInfo = ({ productData }: Props) => {
               </div>
 
               <div className="flex gap-4 py-6">
-                <QuantityInput />
-                <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
-                  Add to Cart
-                </button>
+                {/* <QuantityInput
+                  itemQuantity={itemQuantity}
+                  setItemQuantity={setItemQuantity}
+                /> */}
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: "ADD_TO_CART",
+                        payload: { prod: product, qty: itemQuantity },
+                      });
+                    }}
+                    className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+                  >
+                    Add to Cart
+                  </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid py-16 xl:grid-cols-6 xl:justify-between">
+        <div className="grid gap-16 py-16 xl:grid-cols-6 xl:justify-between xl:gap-0">
           {/* FEATURES  */}
           <div className="xl:col-span-3">
             <h3 className="py-4 text-xl uppercase md:text-2xl">Features</h3>
@@ -106,7 +120,7 @@ const ProductInfo = ({ productData }: Props) => {
 
         {/* GALLERY */}
         <div className="grid gap-4 py-16 md:grid-cols-5 md:grid-rows-2">
-          <picture className="col-span-2">
+          <picture className="md:col-span-2">
             <source
               media="(min-width: 1280px)"
               srcSet={product.gallery.first.desktop}
@@ -122,7 +136,7 @@ const ProductInfo = ({ productData }: Props) => {
             />
           </picture>
 
-          <picture className="col-span-2 row-start-2">
+          <picture className="md:col-span-2 md:row-start-2">
             <source
               media="(min-width: 1280px)"
               srcSet={product.gallery.second.desktop}
@@ -138,7 +152,7 @@ const ProductInfo = ({ productData }: Props) => {
             />
           </picture>
 
-          <picture className="col-span-3 row-span-2">
+          <picture className="md:col-span-3 md:row-span-2">
             <source
               media="(min-width: 1280px)"
               srcSet={product.gallery.third.desktop}

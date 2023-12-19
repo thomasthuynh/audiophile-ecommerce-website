@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 
 import { SelectedPage } from "./types";
 import { headphones, speakers, earphones } from "./assets/data";
@@ -17,6 +18,7 @@ function App() {
     SelectedPage.Home,
   );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [itemQuantity, setItemQuantity] = useState<number>(1);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -40,57 +42,55 @@ function App() {
   }, [pathname]);
 
   return (
-    <div className="max-w-[2560px] mx-auto">
-      <Nav
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-        isScrolled={isScrolled}
-      />
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <div className="mx-auto max-w-[2560px]">
+      <CartProvider>
+        <Nav
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+          isScrolled={isScrolled}
+        />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        {/* HEADPHONES */}
-        <Route element={<ProductLayout />}>
-          <Route
-            path="/headphones"
-            element={
-              <Models product={"headphones"} productData={headphones} />
-            }
-          />
-          <Route
-            path="/headphones/:slug"
-            element={<ProductInfo productData={headphones} />}
-          />
-        </Route>
+          {/* HEADPHONES */}
+          <Route element={<ProductLayout />}>
+            <Route
+              path="/headphones"
+              element={
+                <Models product={"headphones"} productData={headphones} />
+              }
+            />
+            <Route
+              path="/headphones/:slug"
+              element={<ProductInfo productData={headphones} itemQuantity={itemQuantity} />}
+            />
+          </Route>
 
-        {/* SPEAKERS */}
-        <Route element={<ProductLayout />}>
-          <Route
-            path="/speakers"
-            element={
-              <Models product={"speakers"} productData={speakers} />
-            }
-          />
-          <Route
-            path="/speakers/:slug"
-            element={<ProductInfo productData={speakers} />}
-          />
-        </Route>
+          {/* SPEAKERS */}
+          <Route element={<ProductLayout />}>
+            <Route
+              path="/speakers"
+              element={<Models product={"speakers"} productData={speakers} />}
+            />
+            <Route
+              path="/speakers/:slug"
+              element={<ProductInfo productData={speakers} itemQuantity={itemQuantity} />}
+            />
+          </Route>
 
-        {/* EARPHONES */}
-        <Route element={<ProductLayout />}>
-          <Route
-            path="/earphones"
-            element={
-              <Models product={"earphones"} productData={earphones} />
-            }
-          />
-          <Route
-            path="/earphones/:slug"
-            element={<ProductInfo productData={earphones} />}
-          />
-        </Route>
-      </Routes>
+          {/* EARPHONES */}
+          <Route element={<ProductLayout />}>
+            <Route
+              path="/earphones"
+              element={<Models product={"earphones"} productData={earphones} />}
+            />
+            <Route
+              path="/earphones/:slug"
+              element={<ProductInfo productData={earphones} itemQuantity={itemQuantity} />}
+            />
+          </Route>
+        </Routes>
+      </CartProvider>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
   );

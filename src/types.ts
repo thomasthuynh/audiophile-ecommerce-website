@@ -34,3 +34,15 @@ export interface Product {
     image: ImageSet;
   }>;
 }
+
+// Change type any
+export interface CartState {
+  cart: Product[];
+}
+
+export interface CartContextProps {
+  state: CartState;
+  dispatch: React.Dispatch<any>;
+}
+
+

@@ -1,20 +1,20 @@
-import { useState } from "react";
-
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 
-const QuantityInput = () => {
-  const [quantity, setQuantity] = useState<number>(1);
+type Props = {
+  itemQuantity: number;
+  setItemQuantity: (value: ((prevQuantity: number) => number)) => void;
+};
 
+const QuantityInput = ({ itemQuantity, setItemQuantity }: Props) => {
   const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
+    if (itemQuantity > 1) {
+      setItemQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
 
   const handleIncrement = () => {
-    if (quantity < 10)
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    if (itemQuantity < 10) setItemQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   return (
@@ -28,7 +28,8 @@ const QuantityInput = () => {
       </button>
       <input
         type="number"
-        value={quantity}
+        value={itemQuantity}
+        readOnly
         className="max-w-[30px] bg-gray-100 text-center font-bold"
       />
       <button
