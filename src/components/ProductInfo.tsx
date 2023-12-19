@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Product } from "../types";
 
 import { BsArrowLeft } from "react-icons/bs";
+import QuantityInput from "../ui/QuantityInput";
 
 type Props = {
   productData: Product[];
@@ -50,7 +51,7 @@ const ProductInfo = ({ productData }: Props) => {
 
           {/* INFO */}
           <div className="flex flex-col md:flex-1 md:justify-center xl:w-1/2 xl:flex-none">
-            <div className="xl:w-[90%] mx-auto 2xl:w-5/6">
+            <div className="mx-auto xl:w-[90%] 2xl:w-5/6">
               <div>
                 {product.new && (
                   <p className="py-2 text-xs uppercase tracking-[10px] text-primary-500 sm:text-base">
@@ -71,11 +72,7 @@ const ProductInfo = ({ productData }: Props) => {
               </div>
 
               <div className="flex gap-4 py-6">
-                <input
-                  type="number"
-                  min={1}
-                  className="w-1/3 max-w-[115px] bg-gray-100 p-4 font-bold"
-                />
+                <QuantityInput />
                 <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
                   Add to Cart
                 </button>
