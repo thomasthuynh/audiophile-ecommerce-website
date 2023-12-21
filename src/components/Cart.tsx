@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import CartContext from "../context/CartContext";
 import QuantityInput from "../ui/QuantityInput";
 
-type Props = {};
+import { FaXmark } from "react-icons/fa6";
 
-const Cart = ({}: Props) => {
+type Props = {
+  setCartModal: (value: boolean) => void;
+};
+
+const Cart = ({ setCartModal }: Props) => {
   const {
     state: { cart },
     dispatch,
@@ -18,11 +22,17 @@ const Cart = ({}: Props) => {
   );
 
   return (
-    <div className="fixed left-1/2 top-[106px] z-10 w-5/6 -translate-x-1/2 rounded-md border border-black bg-white p-4">
+    <div className="fixed left-1/2 top-[106px] z-30 w-5/6 -translate-x-1/2 rounded-md bg-white p-6">
       {/* CART */}
       <div>
         <div className="flex justify-between pb-2">
           <p className="font-bold uppercase">Cart ({cart.length})</p>
+          <button
+            onClick={() => setCartModal(false)}
+            className="hover:opacity-80"
+          >
+            <FaXmark size={20} />
+          </button>
         </div>
 
         <div>

@@ -30,7 +30,10 @@ const Nav = ({
     state: { cart },
   } = useContext(CartContext);
 
-  const numberOfItems = cart.reduce((items, currentItem) => items + (currentItem.quantity ?? 0), 0)
+  const numberOfItems = cart.reduce(
+    (items, currentItem) => items + (currentItem.quantity ?? 0),
+    0,
+  );
 
   return (
     <nav className="fixed z-20 mx-auto w-full max-w-[2560px] bg-black text-white">

@@ -13,6 +13,7 @@ import ProductLayout from "./pages/ProductLayout";
 import Models from "./components/Models";
 import ProductInfo from "./components/ProductInfo";
 import Cart from "./components/Cart";
+import Overlay from "./components/Overlay";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <div className="mx-auto max-w-[2560px] relative">
+      
       <CartProvider>
         <Nav
           selectedPage={selectedPage}
@@ -52,7 +54,8 @@ function App() {
           cartModal={cartModal}
           setCartModal={setCartModal}
         />
-        {cartModal && <Cart />}
+        {cartModal && <Cart setCartModal={setCartModal}/>}
+        {cartModal && <Overlay/>}
         <Routes>
           <Route path="/" element={<Home />} />
 
