@@ -22,6 +22,7 @@ export interface Product {
   price: number;
   description: string;
   features: string;
+  quantity?: number;
   includes: Array<{ quantity: number; item: string }>;
   gallery: {
     first: ImageSet;
@@ -35,7 +36,6 @@ export interface Product {
   }>;
 }
 
-// Change type any
 export interface CartState {
   cart: Product[];
 }

@@ -7,18 +7,22 @@ import { BsArrowLeft } from "react-icons/bs";
 
 type Props = {
   productData: Product[];
-  itemQuantity: number;
 };
 
-const ProductInfo = ({ productData, itemQuantity }: Props) => {
+const ProductInfo = ({ productData }: Props) => {
   const { slug } = useParams();
-  const { state, dispatch } = useContext(CartContext);
+  const {
+    state: { cart },
+    dispatch,
+  } = useContext(CartContext);
 
   const product = productData.find((item) => item.slug === slug);
 
   if (!product) {
     return <div className="pt-[74px]">Product not found</div>;
   }
+
+  const existsInCart = cart.some((item) => item.id === product.id);
 
   return (
     <div className="pt-[74px]">
@@ -75,21 +79,23 @@ const ProductInfo = ({ productData, itemQuantity }: Props) => {
               </div>
 
               <div className="flex gap-4 py-6">
-                {/* <QuantityInput
-                  itemQuantity={itemQuantity}
-                  setItemQuantity={setItemQuantity}
-                /> */}
+                {existsInCart ? (
+                  <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
+                    View In Cart
+                  </button>
+                ) : (
                   <button
                     onClick={() => {
                       dispatch({
                         type: "ADD_TO_CART",
-                        payload: { prod: product, qty: itemQuantity },
+                        payload: product,
                       });
                     }}
                     className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
                   >
                     Add to Cart
                   </button>
+                )}
               </div>
             </div>
           </div>

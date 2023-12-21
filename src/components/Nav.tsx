@@ -13,9 +13,11 @@ type Props = {
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
   isScrolled: boolean;
+  cartModal: boolean;
+  setCartModal: (value: boolean) => void;
 };
 
-const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
+const Nav = ({ selectedPage, setSelectedPage, isScrolled, cartModal, setCartModal }: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
 
   return (
@@ -69,7 +71,9 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled }: Props) => {
             </ul>
           </div>
           <div>
-            <img src={Cart} alt="Cart" />
+            <button onClick={() => setCartModal(!cartModal)}>
+              <img src={Cart} alt="Cart" />
+            </button>
           </div>
         </div>
 

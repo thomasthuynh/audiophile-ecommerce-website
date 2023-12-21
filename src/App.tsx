@@ -12,13 +12,14 @@ import Footer from "./components/Footer";
 import ProductLayout from "./pages/ProductLayout";
 import Models from "./components/Models";
 import ProductInfo from "./components/ProductInfo";
+import Cart from "./components/Cart";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home,
   );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [itemQuantity, setItemQuantity] = useState<number>(1);
+  const [cartModal, setCartModal] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -48,7 +49,10 @@ function App() {
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
           isScrolled={isScrolled}
+          cartModal={cartModal}
+          setCartModal={setCartModal}
         />
+        {cartModal && <Cart />}
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -62,7 +66,7 @@ function App() {
             />
             <Route
               path="/headphones/:slug"
-              element={<ProductInfo productData={headphones} itemQuantity={itemQuantity} />}
+              element={<ProductInfo productData={headphones} />}
             />
           </Route>
 
@@ -74,7 +78,7 @@ function App() {
             />
             <Route
               path="/speakers/:slug"
-              element={<ProductInfo productData={speakers} itemQuantity={itemQuantity} />}
+              element={<ProductInfo productData={speakers} />}
             />
           </Route>
 
@@ -86,7 +90,7 @@ function App() {
             />
             <Route
               path="/earphones/:slug"
-              element={<ProductInfo productData={earphones} itemQuantity={itemQuantity} />}
+              element={<ProductInfo productData={earphones} />}
             />
           </Route>
         </Routes>

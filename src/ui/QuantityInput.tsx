@@ -1,26 +1,27 @@
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
+
+import { Product } from "../types";
+
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 
 type Props = {
-  itemQuantity: number;
-  setItemQuantity: (value: ((prevQuantity: number) => number)) => void;
+  product: Product;
+  productQuantity: number;
 };
 
-const QuantityInput = ({ itemQuantity, setItemQuantity }: Props) => {
-  const handleDecrement = () => {
-    if (itemQuantity > 1) {
-      setItemQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-
-  const handleIncrement = () => {
-    if (itemQuantity < 10) setItemQuantity((prevQuantity) => prevQuantity + 1);
-  };
+const QuantityInput = ({ product, productQuantity }: Props) => {
+  const {
+    dispatch,
+  } = useContext(CartContext);
 
   return (
-    <div className="flex justify-between bg-gray-100">
+    <div className="flex h-[40px] justify-between bg-gray-100">
       <button
-        onClick={handleDecrement}
+        onClick={() =>
+          dispatch({ type: "DECREASE_QUANTITY", payload: product })
+        }
         className="px-3 hover:text-primary-500 sm:px-5"
         aria-label="Decrease quantity"
       >
@@ -28,12 +29,12 @@ const QuantityInput = ({ itemQuantity, setItemQuantity }: Props) => {
       </button>
       <input
         type="number"
-        value={itemQuantity}
+        value={productQuantity}
         readOnly
-        className="max-w-[30px] bg-gray-100 text-center font-bold"
+        className="max-w-[20px] bg-gray-100 text-center text-sm font-bold"
       />
       <button
-        onClick={handleIncrement}
+        onClick={() => dispatch({ type: "INCREASE_QUANTITY", payload: product })}
         className="px-3 hover:text-primary-500 sm:px-5"
         aria-label="Increase quantity"
       >
