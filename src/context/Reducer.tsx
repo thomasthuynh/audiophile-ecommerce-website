@@ -4,7 +4,7 @@ type CartAction =
   | { type: "ADD_TO_CART"; payload: Product }
   | { type: "INCREASE_QUANTITY"; payload: Product }
   | { type: "DECREASE_QUANTITY"; payload: Product }
-  | { type: "REMOVE"; payload: Product }
+  | { type: "REMOVE"; payload: Product };
 
 export const cartReducer = (state: CartState, action: CartAction) => {
   switch (action.type) {
@@ -36,11 +36,11 @@ export const cartReducer = (state: CartState, action: CartAction) => {
             : item,
         ),
       };
-    case "REMOVE": 
-    return {
-      cart: state.cart.filter((item: Product) => (
-        item.id !== action.payload.id
-      ))
-    }
+    case "REMOVE":
+      return {
+        cart: state.cart.filter(
+          (item: Product) => item.id !== action.payload.id,
+        ),
+      };
   }
 };

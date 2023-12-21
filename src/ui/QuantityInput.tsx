@@ -12,9 +12,7 @@ type Props = {
 };
 
 const QuantityInput = ({ product, productQuantity }: Props) => {
-  const {
-    dispatch,
-  } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   return (
     <div className="flex h-[35px] justify-between bg-gray-100">
@@ -34,7 +32,9 @@ const QuantityInput = ({ product, productQuantity }: Props) => {
         className="max-w-[20px] bg-gray-100 text-center text-sm font-bold"
       />
       <button
-        onClick={() => dispatch({ type: "INCREASE_QUANTITY", payload: product })}
+        onClick={() =>
+          dispatch({ type: "INCREASE_QUANTITY", payload: product })
+        }
         className="px-2 hover:text-primary-500 sm:px-5"
         aria-label="Increase quantity"
       >
