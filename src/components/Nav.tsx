@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../context/CartContext";
 import { SelectedPage } from "../types";
 
 import PageLink from "./PageLink";
@@ -17,8 +18,19 @@ type Props = {
   setCartModal: (value: boolean) => void;
 };
 
-const Nav = ({ selectedPage, setSelectedPage, isScrolled, cartModal, setCartModal }: Props) => {
+const Nav = ({
+  selectedPage,
+  setSelectedPage,
+  isScrolled,
+  cartModal,
+  setCartModal,
+}: Props) => {
   const [modalToggled, setModalToggled] = useState<boolean>(false);
+  const {
+    state: { cart },
+  } = useContext(CartContext);
+
+  const numberOfItems = cart.reduce((items, currentItem) => items + (currentItem.quantity ?? 0), 0)
 
   return (
     <nav className="fixed z-20 mx-auto w-full max-w-[2560px] bg-black text-white">
@@ -70,9 +82,18 @@ const Nav = ({ selectedPage, setSelectedPage, isScrolled, cartModal, setCartModa
               />
             </ul>
           </div>
-          <div>
-            <button onClick={() => setCartModal(!cartModal)}>
+
+          <div className="relative">
+            <button
+              onClick={() => setCartModal(!cartModal)}
+              className="hover:opacity-80"
+            >
               <img src={Cart} alt="Cart" />
+              {cart.length > 0 && (
+                <div className="absolute -bottom-[2px] -right-[10px] flex h-[18px] w-[18px] items-center justify-center rounded-full bg-primary-500">
+                  <span className="text-xs">{numberOfItems}</span>
+                </div>
+              )}
             </button>
           </div>
         </div>

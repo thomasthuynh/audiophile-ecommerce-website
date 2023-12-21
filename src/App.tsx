@@ -43,7 +43,7 @@ function App() {
   }, [pathname]);
 
   return (
-    <div className="mx-auto max-w-[2560px]">
+    <div className="mx-auto max-w-[2560px] relative">
       <CartProvider>
         <Nav
           selectedPage={selectedPage}
@@ -66,7 +66,7 @@ function App() {
             />
             <Route
               path="/headphones/:slug"
-              element={<ProductInfo productData={headphones} />}
+              element={<ProductInfo productData={headphones} setCartModal={setCartModal}/>}
             />
           </Route>
 
@@ -78,7 +78,7 @@ function App() {
             />
             <Route
               path="/speakers/:slug"
-              element={<ProductInfo productData={speakers} />}
+              element={<ProductInfo productData={speakers} setCartModal={setCartModal}/>}
             />
           </Route>
 
@@ -90,7 +90,7 @@ function App() {
             />
             <Route
               path="/earphones/:slug"
-              element={<ProductInfo productData={earphones} />}
+              element={<ProductInfo productData={earphones} setCartModal={setCartModal}/>}
             />
           </Route>
         </Routes>

@@ -7,9 +7,10 @@ import { BsArrowLeft } from "react-icons/bs";
 
 type Props = {
   productData: Product[];
+  setCartModal: (value: boolean) => void;
 };
 
-const ProductInfo = ({ productData }: Props) => {
+const ProductInfo = ({ productData, setCartModal }: Props) => {
   const { slug } = useParams();
   const {
     state: { cart },
@@ -35,6 +36,7 @@ const ProductInfo = ({ productData }: Props) => {
           <BsArrowLeft className="mr-2" />
           <p>{product.category}</p>
         </Link>
+
         {/* PRODUCT */}
         <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12 xl:justify-between">
           {/*IMAGE */}
@@ -80,7 +82,10 @@ const ProductInfo = ({ productData }: Props) => {
 
               <div className="flex gap-4 py-6">
                 {existsInCart ? (
-                  <button className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base">
+                  <button
+                    onClick={() => setCartModal(true)}
+                    className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+                  >
                     View In Cart
                   </button>
                 ) : (

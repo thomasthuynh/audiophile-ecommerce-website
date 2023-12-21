@@ -31,7 +31,7 @@ export const cartReducer = (state: CartState, action: CartAction) => {
             ? {
                 ...item,
                 quantity:
-                  (item.quantity ?? 0) > 0 ? (item.quantity ?? 0) - 1 : 1,
+                  (item.quantity ?? 0) > 1 ? (item.quantity ?? 0) - 1 : 1,
               }
             : item,
         ),

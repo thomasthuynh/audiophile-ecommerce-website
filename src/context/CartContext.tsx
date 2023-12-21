@@ -17,8 +17,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     cart: [],
   });
 
-  console.log(state);
-
   return (
     <CartContext.Provider value={{ dispatch, state }}>
       {children}

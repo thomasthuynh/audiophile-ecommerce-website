@@ -17,7 +17,7 @@ const QuantityInput = ({ product, productQuantity }: Props) => {
   } = useContext(CartContext);
 
   return (
-    <div className="flex h-[40px] justify-between bg-gray-100">
+    <div className="flex h-[35px] justify-between bg-gray-100">
       <button
         onClick={() =>
           dispatch({ type: "DECREASE_QUANTITY", payload: product })
