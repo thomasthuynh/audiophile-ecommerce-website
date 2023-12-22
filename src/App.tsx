@@ -8,6 +8,7 @@ import { headphones, speakers, earphones } from "./assets/data";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Checkout from "./pages/Checkout";
 
 import ProductLayout from "./pages/ProductLayout";
 import Models from "./components/Models";
@@ -41,11 +42,14 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (cartModal) {
+      setCartModal(false);
+    }
   }, [pathname]);
 
   return (
-    <div className="mx-auto max-w-[2560px] relative">
-      
+    <div className="relative mx-auto max-w-[2560px]">
       <CartProvider>
         <Nav
           selectedPage={selectedPage}
@@ -54,8 +58,11 @@ function App() {
           cartModal={cartModal}
           setCartModal={setCartModal}
         />
-        {cartModal && <Cart setCartModal={setCartModal}/>}
-        {cartModal && <Overlay/>}
+        <div className="relative mx-auto w-5/6">
+          {cartModal && <Cart setCartModal={setCartModal} />}
+        </div>
+
+        {cartModal && <Overlay />}
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -69,7 +76,12 @@ function App() {
             />
             <Route
               path="/headphones/:slug"
-              element={<ProductInfo productData={headphones} setCartModal={setCartModal}/>}
+              element={
+                <ProductInfo
+                  productData={headphones}
+                  setCartModal={setCartModal}
+                />
+              }
             />
           </Route>
 
@@ -81,7 +93,12 @@ function App() {
             />
             <Route
               path="/speakers/:slug"
-              element={<ProductInfo productData={speakers} setCartModal={setCartModal}/>}
+              element={
+                <ProductInfo
+                  productData={speakers}
+                  setCartModal={setCartModal}
+                />
+              }
             />
           </Route>
 
@@ -93,9 +110,15 @@ function App() {
             />
             <Route
               path="/earphones/:slug"
-              element={<ProductInfo productData={earphones} setCartModal={setCartModal}/>}
+              element={
+                <ProductInfo
+                  productData={earphones}
+                  setCartModal={setCartModal}
+                />
+              }
             />
           </Route>
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </CartProvider>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />

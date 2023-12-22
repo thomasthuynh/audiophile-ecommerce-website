@@ -35,6 +35,14 @@ const Nav = ({
     0,
   );
 
+  const handleCart = () => {
+    setCartModal(!cartModal);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <nav className="fixed z-20 mx-auto w-full max-w-[2560px] bg-black text-white">
       <div
@@ -87,10 +95,7 @@ const Nav = ({
           </div>
 
           <div className="relative">
-            <button
-              onClick={() => setCartModal(!cartModal)}
-              className="hover:opacity-80"
-            >
+            <button onClick={handleCart} className="hover:opacity-80">
               <img src={Cart} alt="Cart" />
               {cart.length > 0 && (
                 <div className="absolute -bottom-[2px] -right-[10px] flex h-[18px] w-[18px] items-center justify-center rounded-full bg-primary-500">

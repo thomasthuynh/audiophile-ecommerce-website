@@ -53,7 +53,7 @@ const Featured = () => {
               </p>
               <Link
                 to="/speakers/zx9-speaker"
-                className="transparent inline-block bg-black px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-neutral-700 sm:px-8 sm:py-4 sm:text-base xl:px-6 xl:py-3"
+                className="transparent inline-block bg-black px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-neutral-700 sm:px-8 sm:py-4 sm:text-base"
               >
                 See Product
               </Link>

@@ -25,6 +25,14 @@ const ProductInfo = ({ productData, setCartModal }: Props) => {
 
   const existsInCart = cart.some((item) => item.id === product.id);
 
+  const handleCart = () => {
+    setCartModal(true);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="pt-[74px]">
       <div className="mx-auto w-5/6">
@@ -83,7 +91,7 @@ const ProductInfo = ({ productData, setCartModal }: Props) => {
               <div className="flex gap-4 py-6">
                 {existsInCart ? (
                   <button
-                    onClick={() => setCartModal(true)}
+                    onClick={handleCart}
                     className="bg-primary-500 px-6 py-3 text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
                   >
                     View In Cart
