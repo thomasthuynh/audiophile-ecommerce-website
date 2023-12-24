@@ -14,14 +14,15 @@ const Checkout = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    alert("Thank you for your order!")
   };
 
   return (
     <div className="bg-gray-20 pt-[108px]">
       {/* CHECKOUT AND SUMMARY */}
-      <div className="mx-auto w-5/6 grid xl:grid-cols-3 xl:grid-rows-2 gap-8">
+      <div className="mx-auto grid w-5/6 gap-8 xl:grid-cols-3">
         {/* FORM */}
-        <div className="w-full rounded-lg bg-white p-6 shadow-md xl:col-span-2 xl:row-span-2">
+        <div className="w-full rounded-lg bg-white p-6 shadow-md xl:col-span-2">
           <h1 className="text-xl uppercase">Checkout</h1>
 
           <form id="checkoutForm" onSubmit={handleSubmit}>
@@ -160,75 +161,81 @@ const Checkout = () => {
         </div>
 
         {/* SUMMARY */}
-        <div className="w-full rounded-lg bg-white p-6 shadow-md">
-          <h2 className="pb-4 text-xl uppercase">Summary</h2>
-          <div>
-            {cart.map((product) => (
-              <div
-                key={product.id}
-                className="flex w-full items-center justify-between py-3"
-              >
-                <div className="flex items-center">
-                  <div className="max-w-[60px]">
-                    <img
-                      src={product.image.mobile}
-                      alt={product.name}
-                      className="w-full rounded-md"
-                    />
+        <div>
+          <div className="w-full rounded-lg bg-white p-6 shadow-md">
+            <h2 className="pb-4 text-xl uppercase">Summary</h2>
+            <div>
+              {cart.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex w-full items-center justify-between py-3"
+                >
+                  <div className="flex items-center">
+                    <div className="max-w-[60px]">
+                      <img
+                        src={product.image.mobile}
+                        alt={product.name}
+                        className="w-full rounded-md"
+                      />
+                    </div>
+
+                    <div className="flex flex-col pl-4 font-bold">
+                      <p className="text-sm">{product.name.split(" ")[0]}</p>
+                      <p className="text-xs text-neutral-500">
+                        ${product.price}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col pl-4 font-bold">
-                    <p className="text-sm">{product.name.split(" ")[0]}</p>
-                    <p className="text-xs text-neutral-500">${product.price}</p>
+                  <div>
+                    <p className="font-bold text-neutral-500">
+                      x{product.quantity}
+                    </p>
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div>
-                  <p className="font-bold text-neutral-500">
-                    x{product.quantity}
-                  </p>
-                </div>
+            {/* TOTAL */}
+            <div className="flex flex-col gap-2 py-4">
+              {/* SUBTOTAL */}
+              <div className="flex items-center justify-between">
+                <p className="text-sm uppercase text-neutral-500">Total</p>
+                <p className="font-bold">${subtotal.toFixed(2)}</p>
               </div>
-            ))}
-          </div>
 
-          {/* TOTAL */}
-          <div className="flex flex-col gap-2 py-4">
-            {/* SUBTOTAL */}
-            <div className="flex items-center justify-between">
-              <p className="text-sm uppercase text-neutral-500">Total</p>
-              <p className="font-bold">${subtotal.toFixed(2)}</p>
+              {/* SHIPPING */}
+              <div className="flex items-center justify-between">
+                <p className="text-sm uppercase text-neutral-500">
+                  SHIPPING (2.5%)
+                </p>
+                <p className="font-bold">${(subtotal * 0.025).toFixed(2)}</p>
+              </div>
+
+              {/* TAX */}
+              <div className="flex items-center justify-between">
+                <p className="text-sm uppercase text-neutral-500">TAX (10%)</p>
+                <p className="font-bold">${(subtotal * 0.1).toFixed(2)}</p>
+              </div>
+
+              {/* GRAND TOTAL */}
+              <div className="flex items-center justify-between py-4">
+                <p className="text-sm uppercase text-neutral-500">
+                  GRAND TOTAL
+                </p>
+                <p className="font-bold text-primary-500">
+                  ${(subtotal * 1.125).toFixed(2)}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                form="checkoutForm"
+                className="mt-2 inline-block w-full bg-primary-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+              >
+                Continue and Pay
+              </button>
             </div>
-
-            {/* SHIPPING */}
-            <div className="flex items-center justify-between">
-              <p className="text-sm uppercase text-neutral-500">
-                SHIPPING (2.5%)
-              </p>
-              <p className="font-bold">${(subtotal * 0.025).toFixed(2)}</p>
-            </div>
-
-            {/* TAX */}
-            <div className="flex items-center justify-between">
-              <p className="text-sm uppercase text-neutral-500">TAX (10%)</p>
-              <p className="font-bold">${(subtotal * 0.1).toFixed(2)}</p>
-            </div>
-
-            {/* GRAND TOTAL */}
-            <div className="flex items-center justify-between py-4">
-              <p className="text-sm uppercase text-neutral-500">GRAND TOTAL</p>
-              <p className="font-bold text-primary-500">
-                ${(subtotal * 1.125).toFixed(2)}
-              </p>
-            </div>
-
-            <button
-              type="submit"
-              form="checkoutForm"
-              className="mt-2 inline-block w-full bg-primary-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
-            >
-              Continue and Pay
-            </button>
           </div>
         </div>
       </div>
