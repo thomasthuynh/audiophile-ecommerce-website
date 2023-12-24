@@ -23,3 +23,9 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}

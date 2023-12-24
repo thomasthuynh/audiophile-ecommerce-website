@@ -5,8 +5,8 @@ import BestGearLg from "../assets/shared/desktop/image-best-gear.jpg";
 const CompanyInfo = () => {
   return (
     <section className="py-16">
-      <div className="mx-auto grid w-5/6 gap-8 xl:grid-cols-2">
-        <div className="min-[480px]:max-w-[400px] md:max-w-none xl:order-2 mx-auto min-[1440px]:w-3/4">
+      <div className="wrapper grid gap-8 xl:grid-cols-2">
+        <div className="mx-auto max-w-[400px] md:max-w-none xl:order-2 xl:w-4/5">
           <picture>
             <source media="(min-width: 1280px)" srcSet={BestGearLg} />
             <source media="(min-width: 768px)" srcSet={BestGearMd} />
@@ -18,7 +18,8 @@ const CompanyInfo = () => {
           </picture>
         </div>
 
-        <div className="mx-auto flex-col justify-center text-center md:w-[90%] xl:mx-0 xl:flex xl:w-4/5 xl:text-left min-[1440px]:mx-auto">
+        <div className="mx-auto justify-center text-center md:w-[90%] xl:flex xl:w-4/5 xl:flex-col xl:text-left">
+          {/* <div className="flex-col justify-center text-center xl:flex xl:text-left"> */}
           <h3 className="py-8 text-3xl uppercase xl:text-5xl">
             Bringing you the <span className="text-primary-500">best</span>{" "}
             audio gear

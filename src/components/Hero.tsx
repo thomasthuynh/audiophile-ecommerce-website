@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <header className="h-[80vh] bg-heroImgSm bg-cover bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] sm:bg-heroImgMd lg:h-screen xl:bg-heroImgLg">
-      <div className="mx-auto flex h-full w-5/6 translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start">
+      <div className="wrapper flex h-full translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start">
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
           <span className="text-xs uppercase tracking-[10px] text-neutral-500 sm:text-base">
             New Product

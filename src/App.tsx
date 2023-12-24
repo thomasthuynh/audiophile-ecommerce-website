@@ -49,7 +49,7 @@ function App() {
   }, [pathname]);
 
   return (
-    <div className="relative mx-auto max-w-[2560px]">
+    <div className="relative mx-auto">
       <CartProvider>
         <Nav
           selectedPage={selectedPage}

@@ -15,7 +15,7 @@ type Props = {
 const Footer = ({ selectedPage, setSelectedPage }: Props) => {
   return (
     <footer className="relative mt-16 bg-black text-white">
-      <div className="relative mx-auto h-full w-5/6 pb-8 pt-12 xl:pb-12 xl:pt-20">
+      <div className="wrapper relative h-full pb-8 pt-12 xl:pb-12 xl:pt-20">
         <div className="absolute left-1/2 top-0 h-1 w-[90px] -translate-x-1/2 bg-primary-500 md:left-0 md:translate-x-0"></div>
 
         {/* LOGO AND LINKS */}
@@ -30,7 +30,7 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             </Link>
           </div>
 
-          <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-6 md:space-y-0 xl:pt-0">
+          <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-8 md:space-y-0 xl:pt-0">
             <PageLink
               page="home"
               selectedPage={selectedPage}
@@ -63,7 +63,7 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             our demo facility - we're open 7 days a week.
           </p>
 
-          <div className="hidden items-center space-x-4 xl:flex">
+          <div className="hidden items-center gap-6 xl:flex">
             <a href="https://www.facebook.com/" className="hover:opacity-80">
               <img src={Facebook} alt="Facebook" />
             </a>
@@ -81,7 +81,7 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
           <p className="py-12 text-sm font-bold text-neutral-400 md:py-0 xl:text-base">
             Copyright 2021. All Rights Reserved
           </p>
-          <div className="flex items-center space-x-4 xl:hidden">
+          <div className="flex items-center gap-6 xl:hidden">
             <a href="https://www.facebook.com/" className="hover:opacity-80">
               <img src={Facebook} alt="Facebook" />
             </a>

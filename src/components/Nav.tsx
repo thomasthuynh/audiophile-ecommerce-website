@@ -44,11 +44,11 @@ const Nav = ({
   };
 
   return (
-    <nav className="fixed z-20 mx-auto w-full max-w-[2560px] bg-black text-white">
+    <nav className="fixed z-20 mx-auto w-full bg-black text-white">
       <div
         className={`${
           !isScrolled ? "border-b border-neutral-500" : ""
-        } mx-auto w-5/6 py-6`}
+        } wrapper py-6`}
       >
         {/* MENU */}
         <div className="flex items-center justify-between">
@@ -70,7 +70,7 @@ const Nav = ({
             </Link>
           </div>
           <div className="hidden md:flex">
-            <ul className="flex space-x-4 text-sm min-[880px]:space-x-8 lg:space-x-12">
+            <ul className="flex space-x-8 text-sm min-[880px]:space-x-10 lg:space-x-12">
               <PageLink
                 page="home"
                 selectedPage={selectedPage}

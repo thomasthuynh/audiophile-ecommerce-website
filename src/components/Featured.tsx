@@ -20,7 +20,7 @@ import Circles from "../assets/home/desktop/pattern-circles.svg";
 const Featured = () => {
   return (
     <main className="py-16">
-      <div className="mx-auto grid w-5/6 gap-8 md:grid-cols-2 xl:gap-12">
+      <div className="wrapper grid gap-8 md:grid-cols-2 xl:gap-12">
         {/* ZX9 SPEAKER */}
         <div className="overflow-hidden rounded-md bg-primary-500 px-8 py-20 md:col-span-2 xl:py-8">
           <div className="mx-auto flex flex-col items-center justify-center xl:flex-row xl:justify-around">

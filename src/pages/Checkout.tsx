@@ -20,7 +20,7 @@ const Checkout = () => {
   return (
     <div className="bg-gray-20 pt-[108px]">
       {/* CHECKOUT AND SUMMARY */}
-      <div className="mx-auto grid w-5/6 gap-8 xl:grid-cols-3">
+      <div className="wrapper grid gap-8 xl:grid-cols-3">
         {/* FORM */}
         <div className="w-full rounded-lg bg-white p-6 shadow-md xl:col-span-2">
           <h1 className="text-xl uppercase">Checkout</h1>
@@ -231,7 +231,11 @@ const Checkout = () => {
               <button
                 type="submit"
                 form="checkoutForm"
-                className="mt-2 inline-block w-full bg-primary-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+                className={`${
+                  cart.length < 1
+                    ? "pointer-events-none mt-2 inline-block w-full bg-neutral-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white sm:px-8 sm:py-4 sm:text-base"
+                    : "mt-2 inline-block w-full bg-primary-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
+                } `}
               >
                 Continue and Pay
               </button>

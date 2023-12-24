@@ -20,7 +20,7 @@ const ProductInfo = ({ productData, setCartModal }: Props) => {
   const product = productData.find((item) => item.slug === slug);
 
   if (!product) {
-    return <div className="pt-[74px]">Product not found</div>;
+    return null;
   }
 
   const existsInCart = cart.some((item) => item.id === product.id);
@@ -35,11 +35,11 @@ const ProductInfo = ({ productData, setCartModal }: Props) => {
 
   return (
     <div className="pt-[74px]">
-      <div className="mx-auto w-5/6">
+      <div className="wrapper">
         {/* LINK */}
         <Link
           to={`/${product.category}`}
-          className="mb-4 mt-6 inline-flex items-center capitalize text-neutral-500"
+          className="mb-4 mt-6 inline-flex items-center capitalize text-neutral-500 hover:opacity-80"
         >
           <BsArrowLeft className="mr-2" />
           <p>{product.category}</p>

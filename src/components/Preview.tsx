@@ -8,7 +8,7 @@ type Props = {
 
 const Preview = ({ item, index }: Props) => {
   return (
-    <div className="mx-auto flex w-5/6 flex-col items-center py-16 xl:flex-row xl:justify-around">
+    <div className="wrapper flex flex-col items-center py-16 xl:flex-row xl:justify-around">
       <div
         className={`${
           index % 2 === 1 && "xl:order-2"
