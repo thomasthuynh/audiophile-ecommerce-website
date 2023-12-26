@@ -5,15 +5,16 @@ import { CartProvider } from "./context/CartContext";
 import { SelectedPage } from "./types";
 import { headphones, speakers, earphones } from "./assets/data";
 
-import Nav from "./components/Nav";
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
+import ProductLayout from "./pages/ProductLayout";
 import Checkout from "./pages/Checkout";
 
-import ProductLayout from "./pages/ProductLayout";
+import Nav from "./components/Nav";
 import Models from "./components/Models";
 import ProductInfo from "./components/ProductInfo";
+import Footer from "./components/Footer";
 import Cart from "./components/Cart";
+import OrderConfirmation from "./components/OrderConfirmation";
 import Overlay from "./components/Overlay";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [cartModal, setCartModal] = useState<boolean>(false);
+  const [orderModal, setOrderModal] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -49,7 +51,9 @@ function App() {
   }, [pathname]);
 
   return (
-    <div className="relative mx-auto">
+    <div className="relative">
+      {cartModal && <Overlay />}
+      {orderModal && <Overlay />}
       <CartProvider>
         <Nav
           selectedPage={selectedPage}
@@ -58,13 +62,18 @@ function App() {
           cartModal={cartModal}
           setCartModal={setCartModal}
         />
-        <div className="relative mx-auto w-5/6">
+        <div className="wrapper relative">
           {cartModal && <Cart setCartModal={setCartModal} />}
+          {orderModal && <OrderConfirmation />}
         </div>
 
-        {cartModal && <Overlay />}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home orderModal={orderModal} setOrderModal={setOrderModal} />
+            }
+          />
 
           {/* HEADPHONES */}
           <Route element={<ProductLayout />}>
@@ -118,7 +127,10 @@ function App() {
               }
             />
           </Route>
-          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/checkout"
+            element={<Checkout setOrderModal={setOrderModal} />}
+          />
         </Routes>
       </CartProvider>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />

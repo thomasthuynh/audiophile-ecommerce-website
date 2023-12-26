@@ -1,7 +1,13 @@
 import { useContext } from "react";
 import CartContext from "../context/CartContext";
 
-const Checkout = () => {
+import { useForm } from "react-hook-form";
+
+type Props = {
+  setOrderModal: (value: boolean) => void;
+};
+
+const Checkout = ({ setOrderModal }: Props) => {
   const {
     state: { cart },
   } = useContext(CartContext);
@@ -12,9 +18,21 @@ const Checkout = () => {
     0,
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm();
+
+  const submitForm = async (e: any) => {
     e.preventDefault();
-    alert("Thank you for your order!")
+    const isValid = await trigger();
+
+    if (isValid) {
+      setOrderModal(true);
+    } else {
+      console.log(errors);
+    }
   };
 
   return (
@@ -25,7 +43,7 @@ const Checkout = () => {
         <div className="w-full rounded-lg bg-white p-6 shadow-md xl:col-span-2">
           <h1 className="text-xl uppercase">Checkout</h1>
 
-          <form id="checkoutForm" onSubmit={handleSubmit}>
+          <form id="checkoutForm" onSubmit={submitForm}>
             {/* BILLING DETAILS */}
             <fieldset className="mb-12 mt-8 grid gap-4 md:grid-cols-2">
               <legend className="pb-4 text-xs font-bold uppercase text-primary-500">
@@ -36,12 +54,29 @@ const Checkout = () => {
                 <label htmlFor="name" className="inline pb-2 text-xs font-bold">
                   Name
                 </label>
+
                 <input
                   type="text"
                   id="name"
                   placeholder="John Doe"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("name", {
+                    required: true,
+                    minLength: 3,
+                    maxLength: 50,
+                  })}
                 />
+
+                {errors.name && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.name.type === "required" &&
+                      "This field is required."}
+                    {errors.name.type === "minLength" &&
+                      "Min length is 3 characters."}
+                    {errors.name.type === "maxLength" &&
+                      "Max length is 50 characters."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -49,11 +84,26 @@ const Checkout = () => {
                   Email
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
-                  placeholder="john@email.com"
+                  placeholder="johndoe@email.com"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("email", {
+                    required: true,
+                    maxLength: 50,
+                    pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  })}
                 />
+                {errors.email && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.email.type === "required" &&
+                      "This field is required."}
+                    {errors.email.type === "maxLength" &&
+                      "Max length is 50 characters."}
+                    {errors.email.type === "pattern" &&
+                      "Invalid email address."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -65,7 +115,18 @@ const Checkout = () => {
                   id="phone"
                   placeholder="123-456-7890"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("phone", {
+                    required: true,
+                    pattern: /^\d{3}-\d{3}-\d{4}$/,
+                  })}
                 />
+                {errors.phone && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.phone.type === "required" &&
+                      "This field is required."}
+                    {errors.phone.type === "pattern" && "Invalid phone number."}
+                  </p>
+                )}
               </div>
             </fieldset>
 
@@ -84,7 +145,22 @@ const Checkout = () => {
                   id="address"
                   placeholder="1248 Garden Avenue"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("address", {
+                    required: true,
+                    minLength: 10,
+                    maxLength: 100,
+                  })}
                 />
+                {errors.address && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.address.type === "required" &&
+                      "This field is required."}
+                    {errors.address.type === "minLength" &&
+                      "Min length is 10 characters."}
+                    {errors.address.type === "maxLength" &&
+                      "Max length is 100 characters."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -96,7 +172,24 @@ const Checkout = () => {
                   id="zip"
                   placeholder="10001"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("zip", {
+                    required: true,
+                    minLength: 3,
+                    maxLength: 10,
+                    pattern: /.*\d.*/,
+                  })}
                 />
+                {errors.zip && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.zip.type === "required" &&
+                      "This field is required."}
+                    {errors.zip.type === "minLength" &&
+                      "Min length is 3 characters."}
+                    {errors.zip.type === "maxLength" &&
+                      "Max length is 10 characters."}
+                    {errors.zip.type === "pattern" && "Invalid zip code."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -108,7 +201,22 @@ const Checkout = () => {
                   id="city"
                   placeholder="New York"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("city", {
+                    required: true,
+                    minLength: 3,
+                    maxLength: 50,
+                  })}
                 />
+                {errors.city && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.city.type === "required" &&
+                      "This field is required."}
+                    {errors.city.type === "minLength" &&
+                      "Min length is 3 characters."}
+                    {errors.city.type === "maxLength" &&
+                      "Max length is 50 characters."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -120,7 +228,22 @@ const Checkout = () => {
                   id="country"
                   placeholder="United States"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("country", {
+                    required: true,
+                    minLength: 3,
+                    maxLength: 50,
+                  })}
                 />
+                {errors.country && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.country.type === "required" &&
+                      "This field is required."}
+                    {errors.country.type === "minLength" &&
+                      "Min length is 3 characters."}
+                    {errors.country.type === "maxLength" &&
+                      "Max length is 50 characters."}
+                  </p>
+                )}
               </div>
             </fieldset>
 
@@ -141,8 +264,20 @@ const Checkout = () => {
                   type="number"
                   id="moneyNumber"
                   placeholder="1234567890"
-                  className="mb-4 rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("moneyNumber", {
+                    required: true,
+                    pattern: /^\d{10}$/,
+                  })}
                 />
+                {errors.moneyNumber && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.moneyNumber.type === "required" &&
+                      "This field is required."}
+                    {errors.moneyNumber.type === "pattern" &&
+                      "Invalid e-Money number."}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col">
@@ -153,8 +288,20 @@ const Checkout = () => {
                   type="number"
                   id="moneyPin"
                   placeholder="1234"
-                  className="mb-4 rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
+                  {...register("moneyPin", {
+                    required: true,
+                    pattern: /^\d{4}$/,
+                  })}
                 />
+                {errors.moneyPin && (
+                  <p className="pt-1 text-xs text-red-500">
+                    {errors.moneyPin.type === "required" &&
+                      "This field is required."}
+                    {errors.moneyPin.type === "pattern" &&
+                      "Invalid e-Money number."}
+                  </p>
+                )}
               </div>
             </fieldset>
           </form>

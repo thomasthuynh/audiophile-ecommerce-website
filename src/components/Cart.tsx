@@ -25,7 +25,7 @@ const Cart = ({ setCartModal }: Props) => {
   const checkoutPath = location.pathname.includes("/checkout");
 
   return (
-    <div className="absolute left-1/2 top-[108px] z-30 w-full -translate-x-1/2 rounded-lg bg-white p-6 sm:w-2/3 md:left-auto md:right-0 md:w-[350px] md:translate-x-0">
+    <div className="absolute left-1/2 top-[106px] z-30 w-full -translate-x-1/2 rounded-lg bg-white p-6 sm:w-2/3 md:left-auto md:right-0 md:w-[350px] md:translate-x-0">
       {/* CART */}
       <div className="flex justify-between pb-4">
         <p className="font-bold uppercase sm:text-lg">Cart ({cart.length})</p>
@@ -76,7 +76,7 @@ const Cart = ({ setCartModal }: Props) => {
         <p className="text-sm font-bold uppercase text-neutral-500 sm:text-base">
           Total
         </p>
-        <p className="font-bold sm:text-lg">${totalPrice}</p>
+        <p className="font-bold sm:text-lg tracking-wider">${totalPrice}</p>
       </div>
       {checkoutPath ? (
         <Link
