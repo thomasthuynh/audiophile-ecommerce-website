@@ -65,7 +65,9 @@ const OrderConfirmation = () => {
 
           {/* TOTAL */}
           <div className="bg-black p-4">
-            <p className="pb-2 uppercase text-neutral-500 text-sm">Grand Total</p>
+            <p className="pb-2 text-sm uppercase text-neutral-500">
+              Grand Total
+            </p>
             <p className="tracking-wider text-white">${totalPrice}</p>
           </div>
         </div>

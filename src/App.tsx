@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
+import CartContext from "./context/CartContext";
 
 import { SelectedPage } from "./types";
 import { headphones, speakers, earphones } from "./assets/data";
@@ -26,6 +26,8 @@ function App() {
   const [orderModal, setOrderModal] = useState<boolean>(false);
   const { pathname } = useLocation();
 
+  const { dispatch } = useContext(CartContext);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -45,6 +47,11 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    if (orderModal) {
+      setOrderModal(false);
+      dispatch({ type: "CLEAR_CART" });
+    }
+
     if (cartModal) {
       setCartModal(false);
     }
@@ -54,85 +61,74 @@ function App() {
     <div className="relative">
       {cartModal && <Overlay />}
       {orderModal && <Overlay />}
-      <CartProvider>
-        <Nav
-          selectedPage={selectedPage}
-          setSelectedPage={setSelectedPage}
-          isScrolled={isScrolled}
-          cartModal={cartModal}
-          setCartModal={setCartModal}
-        />
-        <div className="wrapper relative">
-          {cartModal && <Cart setCartModal={setCartModal} />}
-          {orderModal && <OrderConfirmation />}
-        </div>
 
-        <Routes>
+      <Nav
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+        isScrolled={isScrolled}
+        cartModal={cartModal}
+        setCartModal={setCartModal}
+      />
+      <div className="wrapper relative">
+        {cartModal && <Cart setCartModal={setCartModal} />}
+        {orderModal && <OrderConfirmation />}
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        {/* HEADPHONES */}
+        <Route element={<ProductLayout />}>
           <Route
-            path="/"
+            path="/headphones"
+            element={<Models product={"headphones"} productData={headphones} />}
+          />
+          <Route
+            path="/headphones/:slug"
             element={
-              <Home orderModal={orderModal} setOrderModal={setOrderModal} />
+              <ProductInfo
+                productData={headphones}
+                setCartModal={setCartModal}
+              />
             }
           />
+        </Route>
 
-          {/* HEADPHONES */}
-          <Route element={<ProductLayout />}>
-            <Route
-              path="/headphones"
-              element={
-                <Models product={"headphones"} productData={headphones} />
-              }
-            />
-            <Route
-              path="/headphones/:slug"
-              element={
-                <ProductInfo
-                  productData={headphones}
-                  setCartModal={setCartModal}
-                />
-              }
-            />
-          </Route>
-
-          {/* SPEAKERS */}
-          <Route element={<ProductLayout />}>
-            <Route
-              path="/speakers"
-              element={<Models product={"speakers"} productData={speakers} />}
-            />
-            <Route
-              path="/speakers/:slug"
-              element={
-                <ProductInfo
-                  productData={speakers}
-                  setCartModal={setCartModal}
-                />
-              }
-            />
-          </Route>
-
-          {/* EARPHONES */}
-          <Route element={<ProductLayout />}>
-            <Route
-              path="/earphones"
-              element={<Models product={"earphones"} productData={earphones} />}
-            />
-            <Route
-              path="/earphones/:slug"
-              element={
-                <ProductInfo
-                  productData={earphones}
-                  setCartModal={setCartModal}
-                />
-              }
-            />
-          </Route>
+        {/* SPEAKERS */}
+        <Route element={<ProductLayout />}>
           <Route
-            path="/checkout"
-            element={<Checkout setOrderModal={setOrderModal} />}
+            path="/speakers"
+            element={<Models product={"speakers"} productData={speakers} />}
           />
-        </Routes>
-      </CartProvider>
+          <Route
+            path="/speakers/:slug"
+            element={
+              <ProductInfo productData={speakers} setCartModal={setCartModal} />
+            }
+          />
+        </Route>
+
+        {/* EARPHONES */}
+        <Route element={<ProductLayout />}>
+          <Route
+            path="/earphones"
+            element={<Models product={"earphones"} productData={earphones} />}
+          />
+          <Route
+            path="/earphones/:slug"
+            element={
+              <ProductInfo
+                productData={earphones}
+                setCartModal={setCartModal}
+              />
+            }
+          />
+        </Route>
+        <Route
+          path="/checkout"
+          element={<Checkout setOrderModal={setOrderModal} />}
+        />
+      </Routes>
       <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
     </div>
   );

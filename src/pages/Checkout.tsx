@@ -30,6 +30,11 @@ const Checkout = ({ setOrderModal }: Props) => {
 
     if (isValid) {
       setOrderModal(true);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     } else {
       console.log(errors);
     }
