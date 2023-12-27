@@ -122,7 +122,7 @@ const Checkout = ({ setOrderModal }: Props) => {
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
                   {...register("phone", {
                     required: true,
-                    pattern: /^\d{3}-\d{3}-\d{4}$/,
+                    pattern: /^\d{3}-?\d{3}-?\d{4}$/,
                   })}
                 />
                 {errors.phone && (

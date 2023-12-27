@@ -16,7 +16,7 @@ const OrderConfirmation = () => {
   );
 
   return (
-    <div className="absolute left-1/2 top-[170px] z-30 w-full -translate-x-1/2 rounded-lg border border-black bg-white p-8">
+    <div className="absolute left-1/2 top-[170px] z-30 w-full max-w-[550px] -translate-x-1/2 rounded-lg border border-black bg-white p-8 sm:w-5/6 md:w-3/4 md:p-12">
       <div>
         <div>
           <img src={ConfirmationIcon} alt="Order confirmation check mark" />
@@ -29,8 +29,8 @@ const OrderConfirmation = () => {
           </p>
         </div>
 
-        <div className="mb-4 overflow-hidden rounded-lg">
-          <div className="bg-gray-100 p-4">
+        <div className="mb-4 overflow-hidden rounded-lg md:mb-6 md:flex">
+          <div className="bg-gray-100 p-4 md:w-3/5">
             {/* INFO */}
             <div className="flex items-center justify-between pb-2">
               {/* IMAGE, NAME AND PRICE */}
@@ -43,28 +43,28 @@ const OrderConfirmation = () => {
                   />
                 </div>
 
-                <div className="text-sm font-bold">
+                <div className="text-sm font-bold min-[480px]:text-base">
                   <p className="pb-[2px]">{cart[0].name.split(" ")[0]}</p>
                   <p className="text-neutral-500">${cart[0].price}</p>
                 </div>
               </div>
 
               {/* QUANTITY */}
-              <div className="text-sm font-bold">
+              <div className="pr-2 text-sm font-bold min-[480px]:pr-4 min-[480px]:text-base">
                 <p className="text-neutral-500">x{cart[0].quantity}</p>
               </div>
             </div>
 
             {/* OTHER ITEMS */}
             {cart.length > 1 && (
-              <div className="border-t border-neutral-300 pt-2 text-center text-xs font-bold text-neutral-500">
+              <div className="border-t border-neutral-300 pt-3 text-center text-xs font-bold text-neutral-500">
                 <p>and {cart.length - 1} other item(s)</p>
               </div>
             )}
           </div>
 
           {/* TOTAL */}
-          <div className="bg-black p-4">
+          <div className="flex flex-col justify-center bg-black p-4 md:w-2/5">
             <p className="pb-2 text-sm uppercase text-neutral-500">
               Grand Total
             </p>
