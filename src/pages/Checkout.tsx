@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../context/CartContext";
 
 import { useForm } from "react-hook-form";
+import { ScaleLoader } from "react-spinners";
 
 type Props = {
   setOrderModal: (value: boolean) => void;
 };
 
 const Checkout = ({ setOrderModal }: Props) => {
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const {
     state: { cart },
   } = useContext(CartContext);
@@ -29,12 +32,17 @@ const Checkout = ({ setOrderModal }: Props) => {
     const isValid = await trigger();
 
     if (isValid) {
-      setOrderModal(true);
+      setIsSubmitting(true);
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setOrderModal(true);
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, 3000);
     } else {
       console.log(errors);
     }
@@ -389,7 +397,11 @@ const Checkout = ({ setOrderModal }: Props) => {
                     : "mt-2 inline-block w-full bg-primary-500 px-6 py-3 text-center text-sm uppercase tracking-[1px] text-white hover:bg-primary-300 sm:px-8 sm:py-4 sm:text-base"
                 } `}
               >
-                Continue and Pay
+                {isSubmitting ? (
+                  <ScaleLoader color="#fff" height={14} />
+                ) : (
+                  "Continue and Pay"
+                )}
               </button>
             </div>
           </div>

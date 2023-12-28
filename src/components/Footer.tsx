@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/shared/desktop/logo.svg";
-import { SelectedPage } from "../types";
-import PageLink from "./PageLink";
 
+import { NavLinks } from "../types";
+
+import Logo from "../assets/shared/desktop/logo.svg";
 import Facebook from "../assets/shared/desktop/icon-facebook.svg";
 import Twitter from "../assets/shared/desktop/icon-twitter.svg";
 import Instagram from "../assets/shared/desktop/icon-instagram.svg";
 
-type Props = {
-  selectedPage: SelectedPage;
-  setSelectedPage: (value: SelectedPage) => void;
-};
+const Footer = () => {
+  const navLinks: NavLinks[] = [
+    { name: "home", path: "/" },
+    { name: "headphones", path: "/headphones" },
+    { name: "speakers", path: "/speakers" },
+    { name: "earphones", path: "/earphones" },
+  ];
 
-const Footer = ({ selectedPage, setSelectedPage }: Props) => {
+  const linkStyles =
+    "font-bold uppercase tracking-[1px] hover:text-primary-500";
   return (
     <footer className="relative mt-16 bg-black text-white">
       <div className="wrapper relative h-full pb-8 pt-12 xl:pb-12 xl:pt-20">
@@ -30,27 +34,12 @@ const Footer = ({ selectedPage, setSelectedPage }: Props) => {
             </Link>
           </div>
 
-          <ul className="flex flex-col space-y-6 py-12 text-sm md:flex-row md:space-x-8 md:space-y-0 xl:pt-0">
-            <PageLink
-              page="home"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <PageLink
-              page="headphones"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <PageLink
-              page="speakers"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <PageLink
-              page="earphones"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
+          <ul className="flex flex-col space-y-8 py-12 text-sm md:flex-row md:space-x-8 md:space-y-0 xl:pt-0">
+            {navLinks.map((link, i) => (
+              <Link key={i} to={link.path} className={linkStyles}>
+                {link.name}
+              </Link>
+            ))}
           </ul>
         </div>
 

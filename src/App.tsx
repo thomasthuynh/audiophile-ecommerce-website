@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import CartContext from "./context/CartContext";
 
-import { SelectedPage } from "./types";
 import { headphones, speakers, earphones } from "./assets/data";
 
 import Home from "./pages/Home";
@@ -18,9 +17,6 @@ import OrderConfirmation from "./components/OrderConfirmation";
 import Overlay from "./components/Overlay";
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(
-    SelectedPage.Home,
-  );
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [cartModal, setCartModal] = useState<boolean>(false);
   const [orderModal, setOrderModal] = useState<boolean>(false);
@@ -63,8 +59,6 @@ function App() {
       {orderModal && <Overlay />}
 
       <Nav
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
         isScrolled={isScrolled}
         cartModal={cartModal}
         setCartModal={setCartModal}
@@ -129,7 +123,7 @@ function App() {
           element={<Checkout setOrderModal={setOrderModal} />}
         />
       </Routes>
-      <Footer selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+      <Footer />
     </div>
   );
 }

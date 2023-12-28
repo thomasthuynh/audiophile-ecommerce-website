@@ -1,8 +1,6 @@
-export enum SelectedPage {
-  Home = "home",
-  Headphones = "headphones",
-  Speakers = "speakers",
-  Earphones = "earphones",
+export interface NavLinks {
+  name: string,
+  path: string
 }
 
 export interface ImageSet {
