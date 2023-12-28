@@ -59,7 +59,7 @@ const Checkout = ({ setOrderModal }: Props) => {
           <form id="checkoutForm" onSubmit={submitForm}>
             {/* BILLING DETAILS */}
             <fieldset className="mb-12 mt-8 grid gap-4 md:grid-cols-2">
-              <legend className="pb-4 text-xs font-bold uppercase text-primary-500">
+              <legend className="pb-4 text-xs font-bold uppercase text-primary-500 w-full">
                 Billing Details
               </legend>
 
@@ -145,7 +145,7 @@ const Checkout = ({ setOrderModal }: Props) => {
 
             {/* SHIPPING INFO */}
             <fieldset className="mb-12 mt-8 grid gap-4 md:grid-cols-2">
-              <legend className="pb-4 text-xs font-bold uppercase text-primary-500">
+              <legend className="pb-4 text-xs font-bold uppercase text-primary-500 w-full">
                 Shipping Info
               </legend>
 
@@ -262,7 +262,7 @@ const Checkout = ({ setOrderModal }: Props) => {
 
             {/* PAYMENT DETAILS */}
             <fieldset className="mb-12 mt-8 grid gap-4 md:grid-cols-2">
-              <legend className="pb-4 text-xs font-bold uppercase text-primary-500">
+              <legend className="pb-4 text-xs font-bold uppercase text-primary-500 w-full">
                 Payment Details
               </legend>
 
