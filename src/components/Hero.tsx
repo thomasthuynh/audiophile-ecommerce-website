@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <header className="h-[80vh] bg-heroImgSm bg-cover bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] sm:bg-heroImgMd lg:h-screen xl:bg-heroImgLg">
+    <header className="mx-auto h-[80vh] max-h-[1080px] max-w-[1920px] bg-black bg-heroImgSm bg-contain bg-center bg-no-repeat min-[480px]:h-[90vh] sm:h-[95vh] sm:bg-heroImgMd lg:h-screen xl:bg-heroImgLg">
       <motion.div
         className="wrapper flex h-full translate-y-[10%] items-center justify-center min-[400px]:translate-y-[5%] sm:w-4/6 md:translate-y-[2.5%] lg:translate-y-0 xl:w-5/6 xl:justify-start"
         initial="hidden"
         whileInView="visible"
-        transition={{duration: 1}}
-        viewport={{once: true}}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
         variants={{
-          hidden: {opacity: 0, x: -100},
-          visible: {opacity: 100, x: 0}
+          hidden: { opacity: 0, x: -100 },
+          visible: { opacity: 100, x: 0 },
         }}
       >
         <div className="text-center sm:w-[90%] xl:w-2/5 xl:text-left">
