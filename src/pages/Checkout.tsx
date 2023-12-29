@@ -274,7 +274,7 @@ const Checkout = ({ setOrderModal }: Props) => {
                   e-Money Number
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   id="moneyNumber"
                   placeholder="1234567890"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
@@ -298,7 +298,7 @@ const Checkout = ({ setOrderModal }: Props) => {
                   e-Money PIN
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   id="moneyPin"
                   placeholder="1234"
                   className="rounded-md border border-neutral-300 p-3 text-xs font-bold"
