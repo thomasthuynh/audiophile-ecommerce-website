@@ -76,7 +76,7 @@ const Cart = ({ setCartModal }: Props) => {
         <p className="text-sm font-bold uppercase text-neutral-500 sm:text-base">
           Total
         </p>
-        <p className="font-bold sm:text-lg tracking-wider">${totalPrice}</p>
+        <p className="font-bold tracking-wider sm:text-lg">${totalPrice}</p>
       </div>
       {checkoutPath ? (
         <Link

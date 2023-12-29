@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Product } from "../types";
 import CartContext from "../context/CartContext";
+
+import { Product } from "../types";
 
 import { BsArrowLeft } from "react-icons/bs";
 

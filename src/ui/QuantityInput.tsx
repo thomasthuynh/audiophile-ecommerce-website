@@ -20,7 +20,7 @@ const QuantityInput = ({ product, productQuantity }: Props) => {
         onClick={() =>
           dispatch({ type: "DECREASE_QUANTITY", payload: product })
         }
-        className="px-2 min-[360px]:px-3 hover:text-primary-500"
+        className="px-2 hover:text-primary-500 min-[360px]:px-3"
         aria-label="Decrease quantity"
       >
         <AiOutlineMinus size={10} />
@@ -35,7 +35,7 @@ const QuantityInput = ({ product, productQuantity }: Props) => {
         onClick={() =>
           dispatch({ type: "INCREASE_QUANTITY", payload: product })
         }
-        className="px-2 min-[360px]:px-3 hover:text-primary-500"
+        className="px-2 hover:text-primary-500 min-[360px]:px-3"
         aria-label="Increase quantity"
       >
         <AiOutlinePlus size={10} />

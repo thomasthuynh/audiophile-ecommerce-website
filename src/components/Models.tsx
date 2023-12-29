@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import Preview from "./Preview";
-import { Product } from "../types";
 import { useLocation } from "react-router-dom";
+import Preview from "./Preview";
+
+import { Product } from "../types";
+
 import { motion } from "framer-motion";
 
 type Props = {
