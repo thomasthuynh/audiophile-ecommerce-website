@@ -25,12 +25,9 @@ const QuantityInput = ({ product, productQuantity }: Props) => {
       >
         <AiOutlineMinus size={10} />
       </button>
-      <input
-        type="number"
-        value={productQuantity}
-        readOnly
-        className="max-w-[20px] bg-gray-100 text-center text-sm font-bold"
-      />
+      <div className="flex w-[20px] items-center justify-center bg-gray-100 text-center text-sm font-bold">
+        {productQuantity}
+      </div>
       <button
         onClick={() =>
           dispatch({ type: "INCREASE_QUANTITY", payload: product })
